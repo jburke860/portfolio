@@ -32,32 +32,44 @@ export const workHighlights = [
 
 export const demoProjects = [
   {
-    title: "Open Computer Vision Dashboard",
+    title: "Technical Paper AI Search Assistant",
     type: "Public Demo Project 01",
-    status: "Planned Build",
+    status: "Local MVP Complete",
     description:
-      "A public, non-sensitive computer vision demo that runs object detection on open images or video samples and displays predictions, confidence scores, and model outputs in a clean web dashboard.",
-    stack: ["Python", "YOLOv8", "FastAPI", "Next.js", "Docker"],
-    focus: [
-      "Model inference API",
-      "Image upload workflow",
-      "Prediction visualization",
-      "Confidence scoring",
+      "A public technical-paper search assistant that uses local embeddings, Chroma vector retrieval, and a FastAPI backend to search public PDFs and return source-grounded snippets with document names and page numbers.",
+    stack: [
+      "Next.js",
+      "FastAPI",
+      "Chroma",
+      "PyMuPDF",
+      "Sentence Transformers",
     ],
+    focus: [
+      "PDF text extraction",
+      "Local embeddings",
+      "Vector search",
+      "Source-grounded snippets",
+    ],
+    github: "https://github.com/jburke860/technical-paper-ai-search",
+    demo: "",
+    demoLabel: "Local Demo",
   },
   {
-    title: "Technical Paper AI Search Assistant",
+    title: "Open Computer Vision Dashboard",
     type: "Public Demo Project 02",
     status: "Planned Build",
     description:
-      "A public RAG-style document assistant that searches open technical papers, retrieves relevant passages, and generates grounded answers with source references.",
-    stack: ["Python", "OpenAI API", "Vector Search", "Next.js", "TypeScript"],
+      "A public, non-sensitive computer vision demo that will display object detection outputs, confidence scores, and model results in a clean technical dashboard using open images or video samples.",
+    stack: ["Python", "YOLOv8", "FastAPI", "Next.js", "Docker"],
     focus: [
-      "Document ingestion",
-      "Embedding search",
-      "Source-grounded answers",
-      "Clean research UI",
+      "Model output visualization",
+      "Bounding box display",
+      "Confidence scoring",
+      "Technical dashboard UI",
     ],
+    github: "",
+    demo: "",
+    demoLabel: "Live Demo Coming Soon",
   },
 ];
 

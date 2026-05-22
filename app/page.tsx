@@ -4,7 +4,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#d9f99d_0,#f7fee7_28%,#fafaf9_58%,#f5f5f4_100%)] font-sans text-stone-900">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <a href="#" className="text-sm font-semibold tracking-wide text-emerald-950">
+        <a
+          href="#"
+          className="text-sm font-semibold tracking-wide text-emerald-950"
+        >
           {site.name}
         </a>
 
@@ -135,7 +138,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="demos" className="border-t border-emerald-100 bg-white/35 px-6 py-20">
+      <section
+        id="demos"
+        className="border-t border-emerald-100 bg-white/35 px-6 py-20"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
@@ -147,9 +153,10 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-stone-600">
-              These projects will demonstrate implementation ability using open
-              data and non-sensitive workflows. They are designed to mirror your
-              strongest skills without exposing contract work.
+              These projects demonstrate implementation ability using open data
+              and non-sensitive workflows. The first project has a working local
+              MVP, and additional deployment and polish work will be added over
+              time.
             </p>
           </div>
 
@@ -189,7 +196,7 @@ export default function Home() {
 
                 <div className="mt-8 rounded-2xl bg-stone-50 p-5">
                   <p className="text-sm font-semibold text-stone-800">
-                    What this will show
+                    Focus areas
                   </p>
                   <ul className="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">
                     {project.focus.map((item) => (
@@ -199,12 +206,35 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <span className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white">
-                    Case Study Coming Soon
-                  </span>
-                  <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
-                    GitHub Coming Soon
-                  </span>
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
+                    >
+                      View GitHub
+                    </a>
+                  ) : (
+                    <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
+                      GitHub Coming Soon
+                    </span>
+                  )}
+
+                  {project.demo ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
+                    >
+                      Live Demo
+                    </a>
+                  ) : (
+                    <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
+                      {project.demoLabel}
+                    </span>
+                  )}
                 </div>
               </article>
             ))}
