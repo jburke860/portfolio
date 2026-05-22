@@ -2,7 +2,7 @@ export const site = {
   name: "Jeremy Burke",
   email: "jeremy.burke024@gmail.com",
   linkedIn: "https://www.linkedin.com/",
-  github: "https://github.com/",
+  github: "https://github.com/jburke860",
   resume: "/resume.pdf",
 };
 
