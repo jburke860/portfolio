@@ -3,7 +3,7 @@ export const site = {
   email: "jeremy.burke024@gmail.com",
   linkedIn: "https://www.linkedin.com/in/jeremy-burke-26bbb81b8/",
   github: "https://github.com/jburke860",
-  resume: "/resume.pdf",
+  resume: "/resume_v2.pdf",
 };
 
 export const workHighlights = [
@@ -34,20 +34,21 @@ export const demoProjects = [
   {
     title: "Technical Paper AI Search Assistant",
     type: "Public Demo Project 01",
-    status: "Local MVP Complete",
+    status: "Enhanced Local MVP",
     description:
-      "A public technical-paper search assistant that uses local embeddings, Chroma vector retrieval, and a FastAPI backend to search public PDFs and return source-grounded snippets with document names and page numbers.",
+      "A local technical-paper search assistant that combines PDF ingestion, local embeddings, hybrid vector/BM25 retrieval, PDF upload with index rebuild, and Ollama-based local answer synthesis to return source-grounded answers from public technical PDFs.",
     stack: [
       "Next.js",
       "FastAPI",
       "Chroma",
-      "PyMuPDF",
+      "BM25",
+      "Ollama",
       "Sentence Transformers",
     ],
     focus: [
-      "PDF text extraction",
-      "Local embeddings",
-      "Vector search",
+      "PDF upload + re-indexing",
+      "Hybrid vector/BM25 retrieval",
+      "Local LLM answer synthesis",
       "Source-grounded snippets",
     ],
     github: "https://github.com/jburke860/technical-paper-ai-search",

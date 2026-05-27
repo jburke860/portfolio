@@ -149,95 +149,120 @@ export default function Home() {
                 Public Demo Projects
               </p>
               <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-                Two projects built for public review
+                Public projects built for review
               </h2>
             </div>
             <p className="max-w-xl text-stone-600">
               These projects demonstrate implementation ability using open data
-              and non-sensitive workflows. The first project has a working local
-              MVP, and additional deployment and polish work will be added over
-              time.
+              and non-sensitive workflows. The technical paper assistant now has
+              an enhanced local MVP with hybrid retrieval, PDF upload, local
+              Ollama answer generation, and source-grounded results.
+            </p>
+          </div>
+
+          <div className="mb-8 rounded-3xl border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
+            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
+              Local Demo Note
+            </p>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
+              The current AI search assistant is a local technical demo. It runs
+              with a Next.js frontend, FastAPI backend, Chroma/BM25 retrieval
+              layer, and local Ollama model. The GitHub repository includes
+              screenshots, setup instructions, and the three-terminal workflow
+              needed to run it locally.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {demoProjects.map((project) => (
-              <article
-                key={project.title}
-                className="rounded-3xl border border-emerald-200 bg-white/90 p-7 shadow-sm shadow-emerald-950/5 transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-sm font-medium text-emerald-700">
-                    {project.type}
-                  </p>
-                  <span className="w-fit rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
-                    {project.status}
-                  </span>
-                </div>
+            {demoProjects.map((project) => {
+              const isComplete = project.status
+                .toLowerCase()
+                .includes("enhanced");
 
-                <h3 className="mt-5 text-2xl font-bold text-emerald-950">
-                  {project.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-6 text-stone-600">
-                  {project.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.stack.map((item) => (
+              return (
+                <article
+                  key={project.title}
+                  className="rounded-3xl border border-emerald-200 bg-white/90 p-7 shadow-sm shadow-emerald-950/5 transition hover:-translate-y-1 hover:shadow-md"
+                >
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm font-medium text-emerald-700">
+                      {project.type}
+                    </p>
                     <span
-                      key={item}
-                      className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800"
+                      className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${
+                        isComplete
+                          ? "bg-emerald-100 text-emerald-800"
+                          : "bg-amber-100 text-amber-800"
+                      }`}
                     >
-                      {item}
+                      {project.status}
                     </span>
-                  ))}
-                </div>
+                  </div>
 
-                <div className="mt-8 rounded-2xl bg-stone-50 p-5">
-                  <p className="text-sm font-semibold text-stone-800">
-                    Focus areas
+                  <h3 className="mt-5 text-2xl font-bold text-emerald-950">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-6 text-stone-600">
+                    {project.description}
                   </p>
-                  <ul className="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">
-                    {project.focus.map((item) => (
-                      <li key={item}>• {item}</li>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800"
+                      >
+                        {item}
+                      </span>
                     ))}
-                  </ul>
-                </div>
+                  </div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  {project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
-                    >
-                      View GitHub
-                    </a>
-                  ) : (
-                    <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
-                      GitHub Coming Soon
-                    </span>
-                  )}
+                  <div className="mt-8 rounded-2xl bg-stone-50 p-5">
+                    <p className="text-sm font-semibold text-stone-800">
+                      What it demonstrates
+                    </p>
+                    <ul className="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">
+                      {project.focus.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-                  {project.demo ? (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
-                    >
-                      Live Demo
-                    </a>
-                  ) : (
-                    <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
-                      {project.demoLabel}
-                    </span>
-                  )}
-                </div>
-              </article>
-            ))}
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
+                      >
+                        View GitHub
+                      </a>
+                    ) : (
+                      <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
+                        GitHub Coming Soon
+                      </span>
+                    )}
+
+                    {project.demo ? (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
+                      >
+                        Live Demo
+                      </a>
+                    ) : (
+                      <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
+                        {project.demoLabel}
+                      </span>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
