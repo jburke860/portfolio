@@ -58,7 +58,7 @@ export const demoProjects = [
   {
     title: "Open Computer Vision Dashboard",
     type: "Public Demo Project 02",
-    status: "Planned Build",
+    status: "Build in progress",
     description:
       "A public, non-sensitive computer vision demo that will display object detection outputs, confidence scores, and model results in a clean technical dashboard using open images or video samples.",
     stack: ["Python", "YOLOv8", "FastAPI", "Next.js", "Docker"],
