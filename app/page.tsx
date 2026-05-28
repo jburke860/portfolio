@@ -165,19 +165,24 @@ export default function Home() {
               Local Demo Note
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
-              The current AI search assistant is a local technical demo. It runs
-              with a Next.js frontend, FastAPI backend, Chroma/BM25 retrieval
-              layer, and local Ollama model. The GitHub repository includes
-              screenshots, setup instructions, and the three-terminal workflow
-              needed to run it locally.
+              These portfolio projects are local technical demos rather than
+              deployed production applications. The Technical Paper AI Search
+              Assistant runs with a Next.js frontend, FastAPI backend, Chroma/BM25
+              retrieval layer, and local Ollama model. The Open Computer Vision
+              Detection Dashboard runs as a static Next.js dashboard using
+              precomputed YOLOv8 detection files for public urban-scene images.
+              Each GitHub repository includes screenshots, setup instructions,
+              and the local workflow needed to run or review the project.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {demoProjects.map((project) => {
-              const isComplete = project.status
-                .toLowerCase()
-                .includes("enhanced");
+              const status = project.status.toLowerCase();
+              const isComplete =
+                status.includes("enhanced") ||
+                status.includes("complete") ||
+                status.includes("static local");
 
               return (
                 <article
@@ -252,7 +257,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
                       >
-                        Live Demo
+                        {project.demoLabel || "Live Demo"}
                       </a>
                     ) : (
                       <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
