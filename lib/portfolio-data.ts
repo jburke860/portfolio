@@ -79,6 +79,32 @@ export const demoProjects = [
     demo: "https://github.com/jburke860/open-cv-detection-dashboard",
     demoLabel: "Run Locally",
   },
+  {
+    title: "ProjectPulse API",
+    type: "Public Demo Project 03",
+    status: "Complete Local API",
+    description:
+      "A Clean Architecture project-management system centered on an ASP.NET Core 8 API, with EF Core persistence, CQRS-style MediatR workflows, FluentValidation, Swagger/OpenAPI, seeded demo data, tests, Docker Compose, GitHub Actions CI, and a thin React/Vite dashboard.",
+    stack: [
+      "C#",
+      "ASP.NET Core 8",
+      "EF Core",
+      "MediatR",
+      "FluentValidation",
+      "React/Vite",
+      "xUnit",
+      "Docker/CI",
+    ],
+    focus: [
+      "Clean Architecture layers",
+      "CQRS + validation pipeline",
+      "Task workflow + audit logging",
+      "React dashboard + API tests",
+    ],
+    github: "https://github.com/jburke860/projectpulse-api",
+    demo: "https://github.com/jburke860/projectpulse-api",
+    demoLabel: "Run Locally",
+  },
 ];
 
 export const skills = [

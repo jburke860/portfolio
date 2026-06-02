@@ -1,9 +1,13 @@
+import { ProjectCarousel } from "@/components/project-carousel";
+import { ScrollLeaves } from "@/components/scroll-leaves";
 import { demoProjects, site, skills, workHighlights } from "@/lib/portfolio-data";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#d9f99d_0,#f7fee7_28%,#fafaf9_58%,#f5f5f4_100%)] font-sans text-stone-900">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <main className="relative isolate min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#d9f99d_0,#f7fee7_28%,#fafaf9_58%,#f5f5f4_100%)] font-sans text-stone-900">
+      <ScrollLeaves />
+
+      <nav className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-7">
         <a
           href="#"
           className="text-sm font-semibold tracking-wide text-emerald-950"
@@ -27,8 +31,8 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-28">
-        <div className="max-w-4xl">
+      <section className="relative z-10 mx-auto max-w-5xl px-6 pb-16 pt-12 md:pb-20 md:pt-20">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="mb-5 inline-flex rounded-full border border-emerald-200 bg-white/70 px-4 py-2 text-sm font-medium text-emerald-800 shadow-sm backdrop-blur">
             Applied AI Engineer • Computer Vision • Sensor Fusion • R&D Software
           </p>
@@ -37,14 +41,14 @@ export default function Home() {
             I build AI-driven software tools for technical, real-world systems.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-700">
             I am a computer engineer focused on applied AI, computer vision,
             sensor fusion, simulation, and automation tools. My work connects
             software engineering with technical R&D, helping turn complex data
             and system behavior into useful, reliable outputs.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href="#demos"
               className="rounded-full bg-emerald-800 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-900"
@@ -59,20 +63,20 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
+          <div className="mx-auto mt-12 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
+            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
               <p className="text-2xl font-bold text-emerald-950">AI / ML</p>
               <p className="mt-2 text-sm text-stone-600">
                 Computer vision, fusion, automation, and LLM-based tools.
               </p>
             </div>
-            <div className="rounded-2xl border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
+            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
               <p className="text-2xl font-bold text-emerald-950">R&D</p>
               <p className="mt-2 text-sm text-stone-600">
                 Technical software for engineering programs and simulations.
               </p>
             </div>
-            <div className="rounded-2xl border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
+            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
               <p className="text-2xl font-bold text-emerald-950">Build</p>
               <p className="mt-2 text-sm text-stone-600">
                 Practical tools, clean interfaces, and reliable workflows.
@@ -82,8 +86,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="border-t border-emerald-100 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
+      <section
+        id="work"
+        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+      >
+        <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
@@ -104,7 +111,7 @@ export default function Home() {
             {workHighlights.map((item) => (
               <article
                 key={item.title}
-                className="rounded-3xl border border-emerald-100 bg-white/80 p-6 shadow-sm shadow-emerald-950/5 backdrop-blur transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-md"
+                className="rounded-lg border border-emerald-100 bg-white/80 p-6 shadow-sm shadow-emerald-950/5 backdrop-blur transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-md"
               >
                 <p className="text-sm font-medium text-emerald-700">
                   {item.type}
@@ -140,9 +147,9 @@ export default function Home() {
 
       <section
         id="demos"
-        className="border-t border-emerald-100 bg-white/35 px-6 py-20"
+        className="relative z-10 border-t border-emerald-100 bg-white/35 px-6 py-20"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
@@ -153,127 +160,35 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-stone-600">
-              These projects demonstrate implementation ability using open data
-              and non-sensitive workflows. The technical paper assistant now has
-              an enhanced local MVP with hybrid retrieval, PDF upload, local
-              Ollama answer generation, and source-grounded results.
+              These projects demonstrate implementation ability using open data,
+              local tooling, and non-sensitive workflows across AI retrieval,
+              computer vision visualization, and backend API architecture.
             </p>
           </div>
 
-          <div className="mb-8 rounded-3xl border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
+          <div className="mb-8 rounded-lg border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
               Local Demo Note
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
               These portfolio projects are local technical demos rather than
-              deployed production applications. The Technical Paper AI Search
-              Assistant runs with a Next.js frontend, FastAPI backend, Chroma/BM25
-              retrieval layer, and local Ollama model. The Open Computer Vision
-              Detection Dashboard runs as a static Next.js dashboard using
-              precomputed YOLOv8 detection files for public urban-scene images.
-              Each GitHub repository includes screenshots, setup instructions,
-              and the local workflow needed to run or review the project.
+              deployed production applications. They cover local AI retrieval,
+              computer vision dashboarding, and backend API architecture using
+              public, non-sensitive workflows. Each GitHub repository includes
+              setup instructions and the local workflow needed to run or review
+              the project.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {demoProjects.map((project) => {
-              const status = project.status.toLowerCase();
-              const isComplete =
-                status.includes("enhanced") ||
-                status.includes("complete") ||
-                status.includes("static local");
-
-              return (
-                <article
-                  key={project.title}
-                  className="rounded-3xl border border-emerald-200 bg-white/90 p-7 shadow-sm shadow-emerald-950/5 transition hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-sm font-medium text-emerald-700">
-                      {project.type}
-                    </p>
-                    <span
-                      className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${
-                        isComplete
-                          ? "bg-emerald-100 text-emerald-800"
-                          : "bg-amber-100 text-amber-800"
-                      }`}
-                    >
-                      {project.status}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-5 text-2xl font-bold text-emerald-950">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-6 text-stone-600">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 rounded-2xl bg-stone-50 p-5">
-                    <p className="text-sm font-semibold text-stone-800">
-                      What it demonstrates
-                    </p>
-                    <ul className="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">
-                      {project.focus.map((item) => (
-                        <li key={item}>• {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    {project.github ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
-                      >
-                        View GitHub
-                      </a>
-                    ) : (
-                      <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
-                        GitHub Coming Soon
-                      </span>
-                    )}
-
-                    {project.demo ? (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
-                      >
-                        {project.demoLabel || "Live Demo"}
-                      </a>
-                    ) : (
-                      <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
-                        {project.demoLabel}
-                      </span>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <ProjectCarousel projects={demoProjects} />
         </div>
       </section>
 
-      <section id="skills" className="border-t border-emerald-100 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
+      <section
+        id="skills"
+        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+      >
+        <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
             Technical Strengths
           </p>
@@ -285,7 +200,7 @@ export default function Home() {
             {skills.map((group) => (
               <div
                 key={group.category}
-                className="rounded-3xl border border-emerald-100 bg-white/75 p-6 shadow-sm shadow-emerald-950/5"
+                className="rounded-lg border border-emerald-100 bg-white/75 p-6 shadow-sm shadow-emerald-950/5"
               >
                 <h3 className="font-semibold text-emerald-950">
                   {group.category}
@@ -301,8 +216,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="border-t border-emerald-100 px-6 py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
+      <section
+        id="about"
+        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+      >
+        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
               About
@@ -329,8 +247,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="border-t border-emerald-100 px-6 py-20">
-        <div className="mx-auto max-w-6xl rounded-3xl border border-emerald-200 bg-emerald-950 p-8 text-white shadow-lg shadow-emerald-950/20 md:p-12">
+      <section
+        id="contact"
+        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+      >
+        <div className="mx-auto max-w-5xl rounded-lg border border-emerald-200 bg-emerald-950 p-8 text-white shadow-lg shadow-emerald-950/20 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-emerald-200">
@@ -373,8 +294,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-emerald-100 px-6 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 text-sm text-stone-500 md:flex-row">
+      <footer className="relative z-10 border-t border-emerald-100 px-6 py-8">
+        <div className="mx-auto flex max-w-5xl flex-col justify-between gap-4 text-sm text-stone-500 md:flex-row">
           <p>© 2026 {site.name}. All rights reserved.</p>
           <p>Built with Next.js, TypeScript, Tailwind CSS, and Vercel.</p>
         </div>
