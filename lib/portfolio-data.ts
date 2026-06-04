@@ -3,7 +3,7 @@ export const site = {
   email: "jeremy.burke024@gmail.com",
   linkedIn: "https://www.linkedin.com/in/jeremy-burke-26bbb81b8/",
   github: "https://github.com/jburke860",
-  resume: "/resume_v2.pdf",
+  resume: "/Jeremy_Burke_Resume.pdf",
 };
 
 export const workHighlights = [
