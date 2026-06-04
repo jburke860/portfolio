@@ -88,6 +88,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
             status.includes("enhanced") ||
             status.includes("complete") ||
             status.includes("static local");
+          const hasDistinctDemo =
+            project.demo !== undefined && project.demo !== project.github;
 
           return (
             <article
@@ -147,15 +149,15 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                     rel="noopener noreferrer"
                     className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
                   >
-                    View GitHub
+                    View Repository
                   </a>
                 ) : (
                   <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
-                    GitHub Coming Soon
+                    Repository Coming Soon
                   </span>
                 )}
 
-                {project.demo ? (
+                {hasDistinctDemo ? (
                   <a
                     href={project.demo}
                     target="_blank"
@@ -164,11 +166,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                   >
                     {project.demoLabel || "Live Demo"}
                   </a>
-                ) : (
-                  <span className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900">
-                    {project.demoLabel}
-                  </span>
-                )}
+                ) : null}
               </div>
             </article>
           );

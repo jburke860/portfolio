@@ -52,8 +52,6 @@ export const demoProjects = [
       "Source-grounded snippets",
     ],
     github: "https://github.com/jburke860/technical-paper-ai-search",
-    demo: "https://github.com/jburke860/technical-paper-ai-search",
-    demoLabel: "Run Locally",
   },
   {
     title: "Open Computer Vision Detection Dashboard",
@@ -76,8 +74,6 @@ export const demoProjects = [
       "Technical dashboard UI",
     ],
     github: "https://github.com/jburke860/open-cv-detection-dashboard",
-    demo: "https://github.com/jburke860/open-cv-detection-dashboard",
-    demoLabel: "Run Locally",
   },
   {
     title: "ProjectPulse API",
@@ -102,8 +98,6 @@ export const demoProjects = [
       "React dashboard + API tests",
     ],
     github: "https://github.com/jburke860/projectpulse-api",
-    demo: "https://github.com/jburke860/projectpulse-api",
-    demoLabel: "Run Locally",
   },
 ];
 
