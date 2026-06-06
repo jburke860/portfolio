@@ -40,7 +40,7 @@ export default function Home() {
           </p>
 
           <h1 className="text-5xl font-bold tracking-tight text-emerald-950 md:text-7xl">
-            I build AI-driven software tools for technical, real-world systems.
+            I build software tools for technical, real-world systems.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-700">
