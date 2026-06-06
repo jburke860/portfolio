@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { demoProjects, site, skills, workHighlights } from "@/lib/portfolio-data";
 
@@ -6,8 +7,18 @@ export default function Home() {
     <main className="relative isolate min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#d9f99d_0,#f7fee7_28%,#fafaf9_58%,#f5f5f4_100%)] font-sans text-stone-900">
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-0 hidden bg-[url('/background.png')] bg-cover bg-center bg-no-repeat opacity-90 lg:block"
-      />
+        className="pointer-events-none fixed inset-0 z-0 hidden opacity-90 lg:block"
+      >
+        <Image
+          src="/background.png"
+          alt=""
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+      </div>
 
       <nav className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-7">
         <a
