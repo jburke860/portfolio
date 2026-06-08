@@ -174,8 +174,8 @@ export default function Home() {
             </div>
             <p className="max-w-xl text-stone-600">
               These projects demonstrate implementation ability using open data,
-              local tooling, and non-sensitive workflows across AI retrieval,
-              computer vision visualization, and backend API architecture.
+              local tooling, and non-sensitive workflows across backend API
+              architecture, AI retrieval, and computer vision visualization.
             </p>
           </div>
 
@@ -185,11 +185,11 @@ export default function Home() {
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
               These portfolio projects are local technical demos rather than
-              deployed production applications. They cover local AI retrieval,
-              computer vision dashboarding, and backend API architecture using
-              public, non-sensitive workflows. Each GitHub repository includes
-              setup instructions and the local workflow needed to run or review
-              the project.
+              deployed production applications. They cover backend API
+              architecture, local AI retrieval, and computer vision
+              dashboarding using public, non-sensitive workflows. Each GitHub
+              repository includes setup instructions and the local workflow
+              needed to run or review the project.
             </p>
           </div>
 

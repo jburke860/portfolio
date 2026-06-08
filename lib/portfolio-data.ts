@@ -32,52 +32,8 @@ export const workHighlights = [
 
 export const demoProjects = [
   {
-    title: "Technical Paper AI Search Assistant",
-    type: "Public Demo Project 01",
-    status: "Enhanced Local MVP",
-    description:
-      "A local technical-paper search assistant that combines PDF ingestion, local embeddings, hybrid vector/BM25 retrieval, PDF upload with index rebuild, and Ollama-based local answer synthesis to return source-grounded answers from public technical PDFs.",
-    stack: [
-      "Next.js",
-      "FastAPI",
-      "Chroma",
-      "BM25",
-      "Ollama",
-      "Sentence Transformers",
-    ],
-    focus: [
-      "PDF upload + re-indexing",
-      "Hybrid vector/BM25 retrieval",
-      "Local LLM answer synthesis",
-      "Source-grounded snippets",
-    ],
-    github: "https://github.com/jburke860/technical-paper-ai-search",
-  },
-  {
-    title: "Open Computer Vision Detection Dashboard",
-    type: "Public Demo Project 02",
-    status: "Static Local MVP",
-    description:
-      "A static local computer vision dashboard that visualizes precomputed YOLOv8 object-detection results on public urban-scene images. The dashboard displays bounding boxes, confidence scores, class summaries, and detection tables without live inference, accounts, or private data.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "YOLOv8",
-      "Computer Vision",
-      "Static JSON",
-    ],
-    focus: [
-      "Object-detection visualization",
-      "Bounding-box overlays",
-      "Confidence-score summaries",
-      "Technical dashboard UI",
-    ],
-    github: "https://github.com/jburke860/open-cv-detection-dashboard",
-  },
-  {
     title: "ProjectPulse API",
-    type: "Public Demo Project 03",
+    type: "Public Demo Project 01",
     status: "Complete Local API",
     description:
       "A Clean Architecture project-management system centered on an ASP.NET Core 8 API, with EF Core persistence, CQRS-style MediatR workflows, FluentValidation, Swagger/OpenAPI, seeded demo data, tests, Docker Compose, GitHub Actions CI, and a thin React/Vite dashboard.",
@@ -99,23 +55,67 @@ export const demoProjects = [
     ],
     github: "https://github.com/jburke860/projectpulse-api",
   },
+  {
+    title: "Technical Paper AI Search Assistant",
+    type: "Public Demo Project 02",
+    status: "Enhanced Local MVP",
+    description:
+      "A local technical-paper search assistant that combines PDF ingestion, local embeddings, hybrid vector/BM25 retrieval, PDF upload with index rebuild, and Ollama-based local answer synthesis to return source-grounded answers from public technical PDFs.",
+    stack: [
+      "Next.js",
+      "FastAPI",
+      "Chroma",
+      "BM25",
+      "Ollama",
+      "Sentence Transformers",
+    ],
+    focus: [
+      "PDF upload + re-indexing",
+      "Hybrid vector/BM25 retrieval",
+      "Local LLM answer synthesis",
+      "Source-grounded snippets",
+    ],
+    github: "https://github.com/jburke860/technical-paper-ai-search",
+  },
+  {
+    title: "Open Computer Vision Detection Dashboard",
+    type: "Public Demo Project 03",
+    status: "Static Local MVP",
+    description:
+      "A static local computer vision dashboard that visualizes precomputed YOLOv8 object-detection results on public urban-scene images. The dashboard displays bounding boxes, confidence scores, class summaries, and detection tables without live inference, accounts, or private data.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "YOLOv8",
+      "Computer Vision",
+      "Static JSON",
+    ],
+    focus: [
+      "Object-detection visualization",
+      "Bounding-box overlays",
+      "Confidence-score summaries",
+      "Technical dashboard UI",
+    ],
+    github: "https://github.com/jburke860/open-cv-detection-dashboard",
+  },
 ];
 
 export const skills = [
   {
-    category: "Programming",
-    items: ["Python", "C", "C++", "Java", "SQL", "TypeScript"],
+    category: "Backend & APIs",
+    items: ["C#", "ASP.NET Core", "FastAPI", "EF Core", "SQL", "REST APIs"],
   },
   {
-    category: "AI / ML",
-    items: ["Computer Vision", "YOLOv8", "Multimodal Fusion", "LLM Systems"],
+    category: "Frontend",
+    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vite"],
   },
   {
-    category: "Simulation",
-    items: ["Gazebo", "ANSYS Workbench", "MATLAB", "Physics-Based Modeling"],
+    category: "AI & Data Systems",
+    items: ["Python", "LLM Systems", "RAG", "Chroma", "Computer Vision", "YOLOv8"],
   },
   {
-    category: "Cloud & Tools",
-    items: ["AWS S3", "AWS EC2", "Weaviate", "OpenAI API", "Linux"],
+    category: "DevOps & Tools",
+    items: ["Docker", "GitHub Actions", "Swagger/OpenAPI", "AWS", "Linux", "Git"],
   },
 ];
