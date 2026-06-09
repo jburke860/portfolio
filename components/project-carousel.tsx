@@ -87,7 +87,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           const isComplete =
             status.includes("enhanced") ||
             status.includes("complete") ||
-            status.includes("static local");
+            status.includes("hosted");
           const hasDistinctDemo =
             project.demo !== undefined && project.demo !== project.github;
 

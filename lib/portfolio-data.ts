@@ -80,16 +80,16 @@ export const demoProjects = [
   {
     title: "Open Computer Vision Detection Dashboard",
     type: "Public Demo Project 03",
-    status: "Static Local MVP",
+    status: "Hosted Public Demo",
     description:
-      "A static local computer vision dashboard that visualizes precomputed YOLOv8 object-detection results on public urban-scene images. The dashboard displays bounding boxes, confidence scores, class summaries, and detection tables without live inference, accounts, or private data.",
+      "A hosted computer vision dashboard that visualizes precomputed YOLOv8 object-detection results on public urban-scene images. The dashboard displays bounding boxes, confidence scores, class summaries, and detection tables without accounts, private data, or live model inference.",
     stack: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
       "YOLOv8",
       "Computer Vision",
-      "Static JSON",
+      "Precomputed JSON",
     ],
     focus: [
       "Object-detection visualization",
@@ -98,6 +98,7 @@ export const demoProjects = [
       "Technical dashboard UI",
     ],
     github: "https://github.com/jburke860/open-cv-detection-dashboard",
+    demo: "https://open-cv-detection-dashboard.vercel.app",
   },
 ];
 

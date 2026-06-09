@@ -181,15 +181,16 @@ export default function Home() {
 
           <div className="mb-8 rounded-lg border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
-              Local Demo Note
+              Demo Availability Note
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
-              These portfolio projects are local technical demos rather than
-              deployed production applications. They cover backend API
-              architecture, local AI retrieval, and computer vision
-              dashboarding using public, non-sensitive workflows. Each GitHub
-              repository includes setup instructions and the local workflow
-              needed to run or review the project.
+              These portfolio projects are technical demos rather than
+              production applications. ProjectPulse and the Technical Paper AI
+              Search Assistant are local review projects, while the Open
+              Computer Vision Detection Dashboard is a hosted public demo using
+              precomputed YOLOv8 results on public images. Each GitHub
+              repository includes setup or review instructions for the workflow
+              behind the project.
             </p>
           </div>
 
