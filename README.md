@@ -2,7 +2,7 @@
 
 Personal portfolio website for software engineering, applied AI, and technical R&D roles.
 
-Live site: [https://jeremyburke.vercel.app](https://jeremyburke.vercel.app)
+Live site: [https://jeremytburke.com](https://jeremytburke.com)
 
 ## Overview
 
