@@ -36,7 +36,7 @@ export const demoProjects = [
   type: "Public Demo Project 01",
   status: "Live Public Demo",
   description:
-    "A live full-stack project-management demo with a React/Vite frontend, ASP.NET Core 8 API, seeded demo workspaces, project/task workflows, activity history, EF Core persistence, Swagger/OpenAPI, tests, Docker Compose, and GitHub Actions CI.",
+    "A live full-stack project-management demo with a React/Vite frontend, ASP.NET Core 8 API, seeded demo workspaces, project/task workflows, activity history, EF Core persistence, tests, Docker Compose, and GitHub Actions CI. This public demo uses temporary seeded workspaces and is being iteratively improved.",
   stack: [
     "C#",
     "ASP.NET Core 8",
