@@ -87,9 +87,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           const isComplete =
             status.includes("enhanced") ||
             status.includes("complete") ||
-            status.includes("hosted");
-          const hasDistinctDemo =
-            project.demo !== undefined && project.demo !== project.github;
+            status.includes("hosted") ||
+            status.includes("live");
 
           return (
             <article
@@ -142,29 +141,25 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
               </div>
 
               <div className="mt-auto flex flex-col gap-3 pt-8 sm:flex-row">
+                {project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
+                  >
+                    {project.demoLabel || "Live Demo"}
+                  </a>
+                ) : null}
+
                 {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
-                  >
-                    View Repository
-                  </a>
-                ) : (
-                  <span className="rounded-full bg-stone-200 px-5 py-3 text-center text-sm font-semibold text-stone-600">
-                    Repository Coming Soon
-                  </span>
-                )}
-
-                {hasDistinctDemo ? (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
                   >
-                    {project.demoLabel || "Live Demo"}
+                    View Repository
                   </a>
                 ) : null}
               </div>

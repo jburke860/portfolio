@@ -32,28 +32,30 @@ export const workHighlights = [
 
 export const demoProjects = [
   {
-    title: "ProjectPulse API",
-    type: "Public Demo Project 01",
-    status: "Complete Local API",
-    description:
-      "A Clean Architecture project-management system centered on an ASP.NET Core 8 API, with EF Core persistence, CQRS-style MediatR workflows, FluentValidation, Swagger/OpenAPI, seeded demo data, tests, Docker Compose, GitHub Actions CI, and a thin React/Vite dashboard.",
-    stack: [
-      "C#",
-      "ASP.NET Core 8",
-      "EF Core",
-      "MediatR",
-      "FluentValidation",
-      "React/Vite",
-      "xUnit",
-      "Docker/CI",
-    ],
-    focus: [
-      "Clean Architecture layers",
-      "CQRS + validation pipeline",
-      "Task workflow + audit logging",
-      "React dashboard + API tests",
-    ],
-    github: "https://github.com/jburke860/projectpulse-api",
+    title: "ProjectPulse Demo",
+  type: "Public Demo Project 01",
+  status: "Live Public Demo",
+  description:
+    "A live full-stack project-management demo with a React/Vite frontend, ASP.NET Core 8 API, seeded demo workspaces, project/task workflows, activity history, EF Core persistence, Swagger/OpenAPI, tests, Docker Compose, and GitHub Actions CI.",
+  stack: [
+    "C#",
+    "ASP.NET Core 8",
+    "EF Core",
+    "MediatR",
+    "FluentValidation",
+    "React/Vite",
+    "xUnit",
+    "Docker/CI",
+  ],
+  focus: [
+    "Clean Architecture layers",
+    "CQRS + validation pipeline",
+    "Task workflow + audit logging",
+    "Hosted demo workspace",
+  ],
+  github: "https://github.com/jburke860/projectpulse-api",
+  demo: "https://projectpulse-demo.vercel.app",
+  demoLabel: "Live Demo",
   },
   {
     title: "Technical Paper AI Search Assistant",
