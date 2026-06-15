@@ -100,7 +100,7 @@ export const demoProjects = [
       "Technical dashboard UI",
     ],
     github: "https://github.com/jburke860/open-cv-detection-dashboard",
-    demo: "https://open-cv-detection-dashboard.vercel.app",
+    demo: "https://open-cv-detection-dashboard--open-cv-detection-dashboard.us-central1.hosted.app",
   },
 ];
 
