@@ -58,8 +58,35 @@ export const demoProjects = [
   demoLabel: "Live Demo",
   },
   {
-    title: "Technical Paper AI Search Assistant",
+    title: "Open Computer Vision Detection Dashboard",
     type: "Public Demo Project 02",
+    status: "Live Public Demo",
+    description:
+      "A hosted computer vision dashboard that lets users upload an image or select a sample scene, run live YOLOv8 object detection, and download annotated image, JSON, and CSV results. The project uses a Next.js/TypeScript frontend, Firebase Authentication, Storage, and Firestore for upload/job tracking, and a Cloud Run FastAPI service for YOLOv8/OpenCV inference.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Cloud Run",
+      "Fast API",
+      "YOLOv8",
+      "OpenCV",
+      "Computer Vision",
+    ],
+    focus: [
+      "Live image-upload inference workflow",
+      "Firestore job tracking",
+      "Cloud Run FastAPI backend deployment",
+      "Firebase Authentication",
+      "YOLOv8 object detection",
+      "Annotated image, JSON, and CSV results generation",
+    ],
+    github: "https://github.com/jburke860/open-cv-detection-dashboard",
+    demo: "https://open-cv-detection-dashboard--open-cv-detection-dashboard.us-central1.hosted.app",
+  },
+  {
+    title: "Technical Paper AI Search Assistant",
+    type: "Public Demo Project 03",
     status: "Enhanced Local MVP",
     description:
       "A local technical-paper search assistant that combines PDF ingestion, local embeddings, hybrid vector/BM25 retrieval, PDF upload with index rebuild, and Ollama-based local answer synthesis to return source-grounded answers from public technical PDFs.",
@@ -78,29 +105,6 @@ export const demoProjects = [
       "Source-grounded snippets",
     ],
     github: "https://github.com/jburke860/technical-paper-ai-search",
-  },
-  {
-    title: "Open Computer Vision Detection Dashboard",
-    type: "Public Demo Project 03",
-    status: "Hosted Public Demo",
-    description:
-      "A hosted computer vision dashboard that visualizes precomputed YOLOv8 object-detection results on public urban-scene images. The dashboard displays bounding boxes, confidence scores, class summaries, and detection tables without accounts, private data, or live model inference.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "YOLOv8",
-      "Computer Vision",
-      "Precomputed JSON",
-    ],
-    focus: [
-      "Object-detection visualization",
-      "Bounding-box overlays",
-      "Confidence-score summaries",
-      "Technical dashboard UI",
-    ],
-    github: "https://github.com/jburke860/open-cv-detection-dashboard",
-    demo: "https://open-cv-detection-dashboard--open-cv-detection-dashboard.us-central1.hosted.app",
   },
 ];
 
