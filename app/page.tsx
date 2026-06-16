@@ -181,16 +181,10 @@ export default function Home() {
 
           <div className="mb-8 rounded-lg border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
-              Demo Availability Note
+              Project Demo Status
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
-              These portfolio projects are technical demos rather than
-              production applications. ProjectPulse and the Technical Paper AI
-              Search Assistant are local review projects, while the Open
-              Computer Vision Detection Dashboard is a hosted public demo using
-              precomputed YOLOv8 results on public images. Each GitHub
-              repository includes setup or review instructions for the workflow
-              behind the project.
+            ProjectPulse API and the Open Computer Vision Detection Dashboard are available as live public demos. The Technical Paper AI Search Assistant is currently available as a local demo through its GitHub setup instructions. These projects are technical portfolio demonstrations intended to show architecture, implementation approach, and workflow design. Each repository includes setup or review instructions for exploring the project.
             </p>
           </div>
 

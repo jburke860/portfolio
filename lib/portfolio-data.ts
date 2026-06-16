@@ -8,25 +8,25 @@ export const site = {
 
 export const workHighlights = [
   {
-    title: "Computer Vision & Multi-Spectral Perception",
+    title: "Multi-Spectral Computer Vision & Sensor Fusion",
     type: "Sanitized Contract Work",
     description:
-      "Developed ML-based perception workflows using synthetic and real multi-spectral data to support object detection, sensor modeling, and fusion-oriented validation.",
-    stack: ["Python", "Computer Vision", "YOLOv8", "Sensor Fusion"],
+      "Developed ML-based perception workflows using synthetic and real multi-spectral data to support object detection, sensor modeling, and fusion-oriented validation for technical R&D programs.",
+    stack: ["Python", "Computer Vision", "YOLOv8", "Sensor Fusion", "Synthetic Data"],
   },
   {
-    title: "AI Automation & Decision Support",
+    title: "AI Automation & Engineering Decision Support",
     type: "Sanitized Contract Work",
     description:
-      "Built AI-enabled internal tools using cloud services, vector search, and LLM APIs to accelerate technical analysis, document workflows, and engineering decision support.",
-    stack: ["AWS", "OpenAI API", "Weaviate", "Python"],
+      "Built AI-enabled internal tools that combine cloud services, vector search, LLM APIs, and automation workflows to accelerate technical analysis, documentation, and engineering decision support.",
+    stack: ["AWS", "OpenAI API", "Weaviate", "Python", "Automation"],
   },
   {
-    title: "Simulation & Engineering Modeling",
+    title: "Simulation, Modeling & Technical Analysis",
     type: "Sanitized Contract Work",
     description:
-      "Created simulation and modeling workflows for sensor behavior, environmental effects, technical trade studies, and system-level R&D validation.",
-    stack: ["Gazebo", "ANSYS", "MATLAB", "Physics Modeling"],
+      "Created simulation and modeling workflows for sensor behavior, environmental effects, engineering trade studies, and system-level R&D validation across defense and aerospace programs.",
+    stack: ["Gazebo", "ANSYS", "MATLAB", "Physics Modeling", "Technical R&D"],
   },
 ];
 
