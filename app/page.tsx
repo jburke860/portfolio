@@ -101,7 +101,7 @@ export default function Home() {
 
       <section
         id="work"
-        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+        className="relative z-10  px-6 py-20"
       >
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -160,7 +160,7 @@ export default function Home() {
 
       <section
         id="demos"
-        className="relative z-10 border-t border-emerald-100 bg-white/35 px-6 py-20"
+        className="relative z-10  bg-white/5 px-6 py-20"
       >
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -183,7 +183,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
               Project Demo Status
             </p>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-700">
+            <p className="mt-3 max-w-5xl text-sm leading-6 text-stone-700">
             ProjectPulse API and the Open Computer Vision Detection Dashboard are available as live public demos. The Technical Paper AI Search Assistant is currently available as a local demo through its GitHub setup instructions. These projects are technical portfolio demonstrations intended to show architecture, implementation approach, and workflow design. Each repository includes setup or review instructions for exploring the project.
             </p>
           </div>
@@ -194,7 +194,7 @@ export default function Home() {
 
       <section
         id="skills"
-        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+        className="relative z-10  px-6 py-20"
       >
         <div className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
@@ -226,7 +226,7 @@ export default function Home() {
 
       <section
         id="about"
-        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+        className="relative z-10  px-6 py-20"
       >
         <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -257,7 +257,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className="relative z-10 border-t border-emerald-100 px-6 py-20"
+        className="relative z-10  px-6 py-20"
       >
         <div className="mx-auto max-w-5xl rounded-lg border border-emerald-200 bg-emerald-950 p-8 text-white shadow-lg shadow-emerald-950/20 md:p-12">
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
@@ -302,7 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative z-10 border-t border-emerald-100 px-6 py-8">
+      <footer className="relative z-10  px-6 py-8">
         <div className="mx-auto flex max-w-5xl flex-col justify-between gap-4 text-sm text-stone-500 md:flex-row">
           <p>© 2026 {site.name}. All rights reserved.</p>
           <p>Built with Next.js, TypeScript, Tailwind CSS, and Vercel.</p>
