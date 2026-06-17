@@ -160,7 +160,7 @@ export default function Home() {
 
       <section
         id="demos"
-        className="relative z-10  bg-white/5 px-6 py-20"
+        className="relative z-10 px-6 py-20"
       >
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
