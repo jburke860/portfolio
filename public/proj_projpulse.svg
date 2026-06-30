@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ProjectPulse favicon">
+  <defs>
+    <linearGradient id="ppWarm" x1="5" y1="4" x2="27" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b31318"/>
+      <stop offset="0.52" stop-color="#f0441f"/>
+      <stop offset="1" stop-color="#ff9700"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#ppWarm)"/>
+  <path d="M10 24V8h8.2c4.4 0 7.3 2.55 7.3 6.35S22.6 20.7 18.2 20.7h-3.05V24H10Zm5.15-7.25h2.85c1.55 0 2.6-.92 2.6-2.4 0-1.5-1.05-2.42-2.6-2.42h-2.85v4.82Z" fill="#fff7ed"/>
+  <path d="M12.4 15.35h3.1l1.15-3.15 2.15 6.05 1.2-2.9h3.45" fill="none" stroke="#ff6a00" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

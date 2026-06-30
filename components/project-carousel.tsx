@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 type Project = {
   title: string;
+  icon?: string;
   type: string;
   status: string;
   description: string;
@@ -84,7 +86,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
       <div
         ref={railRef}
-        className="project-scrollbar edge-fade-x -mx-6 flex snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 md:mx-0 md:px-0"
+        className="project-scrollbar edge-fade-x -mx-6 flex gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 md:mx-0 md:px-0"
       >
         {projects.map((project, i) => {
           const status = project.status.toLowerCase();
@@ -97,7 +99,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           return (
             <article
               key={project.title}
-              className="group flex min-h-[36rem] w-[min(86vw,34rem)] shrink-0 snap-start flex-col rounded-2xl border border-ink/10 bg-paper/85 p-7 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] md:w-[34rem]"
+              className="group flex min-h-[36rem] w-[min(86vw,34rem)] shrink-0 flex-col rounded-2xl border border-ink/10 bg-paper/85 p-7 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] md:w-[34rem]"
             >
               <div className="flex items-center justify-between">
                 <span className="label-mono text-ink-soft">
@@ -119,9 +121,22 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 </span>
               </div>
 
-              <h3 className="mt-5 font-display text-2xl tracking-tight text-ink">
-                {project.title}
-              </h3>
+              <div className="mt-5 flex items-center gap-4">
+                {project.icon ? (
+                  <Image
+                    src={project.icon}
+                    alt=""
+                    aria-hidden="true"
+                    width={48}
+                    height={48}
+                    unoptimized
+                    className="size-12 shrink-0 rounded-xl shadow-[0_3px_10px_-2px_rgba(20,40,26,0.35)] ring-1 ring-ink/5 transition-transform duration-300 group-hover:-translate-y-0.5"
+                  />
+                ) : null}
+                <h3 className="font-display text-2xl tracking-tight text-ink">
+                  {project.title}
+                </h3>
+              </div>
 
               <p className="mt-4 text-sm leading-6 text-ink-soft">
                 {project.description}

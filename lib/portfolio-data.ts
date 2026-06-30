@@ -33,6 +33,7 @@ export const workHighlights = [
 export const demoProjects = [
   {
     title: "ProjectPulse Demo",
+  icon: "/proj_projpulse.svg",
   type: "Public Demo Project 01",
   status: "Live Public Demo",
   description:
@@ -59,6 +60,7 @@ export const demoProjects = [
   },
   {
     title: "Open Computer Vision Detection Dashboard",
+    icon: "/opencv.ico",
     type: "Public Demo Project 02",
     status: "Live Public Demo",
     description:
@@ -86,6 +88,7 @@ export const demoProjects = [
   },
   {
     title: "Technical Paper AI Search Assistant",
+    icon: "/tech_paper_ass.ico",
     type: "Public Demo Project 03",
     status: "Enhanced Local MVP",
     description:
