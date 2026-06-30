@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type Project = {
   title: string;
@@ -58,6 +58,42 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
     return () => rail.removeEventListener("wheel", onWheel);
   }, []);
 
+  // Track whether we're at the far left/right so the edge fade only appears on
+  // a side when there's more content to scroll toward it.
+  const [edges, setEdges] = useState({ atStart: true, atEnd: false });
+
+  const updateEdges = useCallback(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const atStart = rail.scrollLeft <= 1;
+    const atEnd =
+      Math.ceil(rail.scrollLeft + rail.clientWidth) >= rail.scrollWidth - 1;
+    setEdges((prev) =>
+      prev.atStart === atStart && prev.atEnd === atEnd
+        ? prev
+        : { atStart, atEnd }
+    );
+  }, []);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    updateEdges();
+    rail.addEventListener("scroll", updateEdges, { passive: true });
+    window.addEventListener("resize", updateEdges);
+    return () => {
+      rail.removeEventListener("scroll", updateEdges);
+      window.removeEventListener("resize", updateEdges);
+    };
+  }, [updateEdges]);
+
+  const fade = "5%";
+  const maskImage = `linear-gradient(to right, ${
+    edges.atStart ? "black" : "transparent"
+  } 0%, black ${fade}, black calc(100% - ${fade}), ${
+    edges.atEnd ? "black" : "transparent"
+  } 100%)`;
+
   return (
     <div className="relative">
       <div className="mb-5 flex items-center justify-between">
@@ -86,7 +122,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
       <div
         ref={railRef}
-        className="project-scrollbar edge-fade-x -mx-6 flex gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 md:mx-0 md:px-0"
+        style={{ WebkitMaskImage: maskImage, maskImage }}
+        className="project-scrollbar -mx-6 flex gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 pt-3 md:mx-0 md:px-0"
       >
         {projects.map((project, i) => {
           const status = project.status.toLowerCase();
