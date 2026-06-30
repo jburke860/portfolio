@@ -1,311 +1,268 @@
 import Image from "next/image";
 import { ProjectCarousel } from "@/components/project-carousel";
+import { BackgroundField } from "@/components/site/background-field";
+import { Hero } from "@/components/site/hero";
+import { Reveal } from "@/components/site/reveal";
+import { ScrollProgress } from "@/components/site/scroll-progress";
+import { SectionHeading } from "@/components/site/section-heading";
+import { SiteNav } from "@/components/site/site-nav";
 import { demoProjects, site, skills, workHighlights } from "@/lib/portfolio-data";
 
 export default function Home() {
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#d9f99d_0,#f7fee7_28%,#fafaf9_58%,#f5f5f4_100%)] font-sans text-stone-900">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-0 hidden opacity-90 lg:block"
-      >
-        <Image
-          src="/background.png"
-          alt=""
-          fill
-          priority
-          unoptimized
-          sizes="100vw"
-          className="object-cover object-top"
-        />
-      </div>
+    <main className="relative isolate min-h-screen overflow-x-hidden font-sans text-ink">
+      <BackgroundField />
+      <ScrollProgress />
+      <SiteNav name={site.name} />
 
-      <nav className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-7">
-        <a
-          href="#"
-          className="text-sm font-semibold tracking-wide text-emerald-950"
-        >
-          {site.name}
-        </a>
+      <Hero resume={site.resume} />
 
-        <div className="hidden items-center gap-6 text-sm text-stone-600 md:flex">
-          <a href="#work" className="hover:text-emerald-800">
-            Work
-          </a>
-          <a href="#demos" className="hover:text-emerald-800">
-            Public Demos
-          </a>
-          <a href="#skills" className="hover:text-emerald-800">
-            Skills
-          </a>
-          <a href="#contact" className="hover:text-emerald-800">
-            Contact
-          </a>
-        </div>
-      </nav>
+      {/* WORK */}
+      <section id="work" className="relative z-10 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <SectionHeading
+              index="01"
+              eyebrow="Selected Technical Work"
+              title="Sanitized experience summaries"
+              description="Some work is summarized at a high level due to contractual and confidentiality constraints. No proprietary code, customer details, restricted datasets, or sensitive system information is included."
+            />
+          </Reveal>
 
-      <section className="relative z-10 mx-auto max-w-5xl px-6 pb-16 pt-12 md:pb-20 md:pt-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-5 inline-flex rounded-full border border-emerald-200 bg-white/70 px-4 py-2 text-sm font-medium text-emerald-800 shadow-sm backdrop-blur">
-            Applied AI Engineer • Computer Vision • Sensor Fusion • R&D Software
-          </p>
-
-          <h1 className="text-5xl font-bold tracking-tight text-emerald-950 md:text-7xl">
-            I build software tools for technical, real-world systems.
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-            I am a computer engineer focused on applied AI, computer vision,
-            sensor fusion, simulation, and automation tools. My work connects
-            software engineering with technical R&D, helping turn complex data
-            and system behavior into useful, reliable outputs.
-          </p>
-
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="#demos"
-              className="rounded-full bg-emerald-800 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-900"
-            >
-              View Public Demo Projects
-            </a>
-            <a
-              href={site.resume}
-              className="rounded-full border border-emerald-300 bg-white/70 px-6 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-white"
-            >
-              Download Resume
-            </a>
-          </div>
-
-          <div className="mx-auto mt-12 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
-            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
-              <p className="text-2xl font-bold text-emerald-950">AI / ML</p>
-              <p className="mt-2 text-sm text-stone-600">
-                Computer vision, fusion, automation, and LLM-based tools.
-              </p>
-            </div>
-            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
-              <p className="text-2xl font-bold text-emerald-950">R&D</p>
-              <p className="mt-2 text-sm text-stone-600">
-                Technical software for engineering programs and simulations.
-              </p>
-            </div>
-            <div className="rounded-lg border border-emerald-100 bg-white/70 p-5 shadow-sm backdrop-blur">
-              <p className="text-2xl font-bold text-emerald-950">Build</p>
-              <p className="mt-2 text-sm text-stone-600">
-                Practical tools, clean interfaces, and reliable workflows.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="work"
-        className="relative z-10  px-6 py-20"
-      >
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-                Selected Technical Work
-              </p>
-              <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-                Sanitized experience summaries
-              </h2>
-            </div>
-            <p className="max-w-xl text-stone-600">
-              Some work is summarized at a high level due to contractual and
-              confidentiality constraints. No proprietary code, customer details,
-              restricted datasets, or sensitive system information is included.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {workHighlights.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-lg border border-emerald-100 bg-white/80 p-6 shadow-sm shadow-emerald-950/5 backdrop-blur transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-md"
-              >
-                <p className="text-sm font-medium text-emerald-700">
-                  {item.type}
-                </p>
-                <h3 className="mt-4 text-xl font-semibold text-emerald-950">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-stone-600">
-                  {item.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {item.stack.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-8">
-                  <span className="rounded-full bg-stone-100 px-3 py-1 text-xs font-semibold text-stone-600">
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {workHighlights.map((item, i) => (
+              <Reveal as="article" delay={i * 0.08} key={item.title}>
+                <div className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-paper/85 p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)]">
+                  <span className="label-mono text-ink-soft">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-4 label-mono text-pine">{item.type}</p>
+                  <h3 className="mt-3 font-display text-xl tracking-tight text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-6 text-ink-soft">
+                    {item.description}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.stack.map((skill) => (
+                      <span
+                        key={skill}
+                        className="label-mono rounded-md border border-ink/10 bg-paper-2/60 px-2.5 py-1 text-[0.68rem] text-ink-soft"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-auto pt-8 label-mono text-ink-soft/70">
                     Non-confidential summary
                   </span>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        id="demos"
-        className="relative z-10 px-6 py-20"
-      >
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-                Public Demo Projects
+      {/* DEMOS */}
+      <section id="demos" className="relative z-10 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <SectionHeading
+              index="02"
+              eyebrow="Public Demo Projects"
+              title="Built in the open, for review"
+              description="Implementation ability shown with open data, local tooling, and non-sensitive workflows across backend APIs, AI retrieval, and computer vision."
+            />
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="mt-12 mb-8 rounded-2xl border border-pine/25 bg-emerald-50/70 p-6 backdrop-blur-sm">
+              <p className="label-mono text-pine">Project demo status</p>
+              <p className="mt-3 max-w-5xl text-sm leading-6 text-ink-soft">
+                ProjectPulse API and the Open Computer Vision Detection Dashboard
+                are available as live public demos. The Technical Paper AI Search
+                Assistant is currently available as a local demo through its
+                GitHub setup instructions. Each repository includes setup or
+                review instructions for exploring the project.
               </p>
-              <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-                Public projects built for review
-              </h2>
             </div>
-            <p className="max-w-xl text-stone-600">
-              These projects demonstrate implementation ability using open data,
-              local tooling, and non-sensitive workflows across backend API
-              architecture, AI retrieval, and computer vision visualization.
-            </p>
-          </div>
+          </Reveal>
 
-          <div className="mb-8 rounded-lg border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm shadow-emerald-950/5">
-            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800">
-              Project Demo Status
-            </p>
-            <p className="mt-3 max-w-5xl text-sm leading-6 text-stone-700">
-            ProjectPulse API and the Open Computer Vision Detection Dashboard are available as live public demos. The Technical Paper AI Search Assistant is currently available as a local demo through its GitHub setup instructions. These projects are technical portfolio demonstrations intended to show architecture, implementation approach, and workflow design. Each repository includes setup or review instructions for exploring the project.
-            </p>
-          </div>
-
-          <ProjectCarousel projects={demoProjects} />
+          <Reveal delay={0.15}>
+            <ProjectCarousel projects={demoProjects} />
+          </Reveal>
         </div>
       </section>
 
-      <section
-        id="skills"
-        className="relative z-10  px-6 py-20"
-      >
-        <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-            Technical Strengths
-          </p>
-          <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-            Skills & Tools
-          </h2>
+      {/* SKILLS */}
+      <section id="skills" className="relative z-10 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <SectionHeading
+              index="03"
+              eyebrow="Technical Strengths"
+              title="Skills & tools"
+            />
+          </Reveal>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-4">
-            {skills.map((group) => (
-              <div
-                key={group.category}
-                className="rounded-lg border border-emerald-100 bg-white/75 p-6 shadow-sm shadow-emerald-950/5"
-              >
-                <h3 className="font-semibold text-emerald-950">
-                  {group.category}
-                </h3>
-                <ul className="mt-4 space-y-3 text-sm text-stone-600">
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+          <div className="mt-14 grid gap-5 md:grid-cols-4">
+            {skills.map((group, i) => (
+              <Reveal delay={i * 0.07} key={group.category}>
+                <div className="h-full rounded-2xl border border-ink/10 bg-paper/85 p-6 backdrop-blur-sm transition duration-300 hover:border-pine/40">
+                  <h3 className="font-display text-lg tracking-tight text-ink">
+                    {group.category}
+                  </h3>
+                  <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-pine">·</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="relative z-10 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <SectionHeading
+              index="04"
+              eyebrow="About"
+              title="Rooted in Connecticut."
+            />
+          </Reveal>
+          <div className="mt-12 grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-14">
+            <Reveal delay={0.1}>
+              <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-paper shadow-[0_24px_60px_-34px_rgba(20,40,26,0.5)]">
+                <Image
+                  src="/img-8471.jpeg"
+                  alt="Jeremy hiking on a fallen tree in the Connecticut woods"
+                  width={3024}
+                  height={4032}
+                  sizes="(min-width: 768px) 42vw, 90vw"
+                  className="aspect-[3/4] w-full object-cover"
+                />
+                <figcaption className="label-mono flex items-center gap-2 border-t border-line/70 px-4 py-3 text-ink-soft">
+                  <span className="size-1.5 rounded-full bg-emerald-600" />
+                  On the trail · Connecticut
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="space-y-6 text-lg leading-relaxed text-ink-soft">
+              <p>
+                I&apos;m Jeremy. I grew up in Hebron, Connecticut, where I went
+                to RHAM High School and played football. A lot of who I am is
+                still rooted in this corner of New England: hiking, swimming,
+                and being out in the woods, plus a borderline unreasonable
+                devotion to every Boston sports team and the UConn Huskies.
+              </p>
+              <p>
+                I studied at the University of Connecticut and was lucky enough
+                to watch the Huskies go back to back, winning two national
+                championships while I was there. That same mix of curiosity and
+                competitiveness is what pulls me toward engineering. I like
+                taking messy, real world problems apart and building software
+                that actually holds up.
+              </p>
+              <p>
+                These days I work at the intersection of software, applied AI,
+                and technical R&amp;D, building with computer vision, sensor
+                fusion, simulation, and automation to turn complex data and
+                system behavior into tools people can rely on.
+              </p>
+
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-line/70 pt-6 sm:grid-cols-3">
+                <div>
+                  <dt className="label-mono text-pine">Hometown</dt>
+                  <dd className="mt-1 text-sm text-ink">Hebron, CT</dd>
+                </div>
+                <div>
+                  <dt className="label-mono text-pine">High School</dt>
+                  <dd className="mt-1 text-sm text-ink">RHAM · Football</dd>
+                </div>
+                <div>
+                  <dt className="label-mono text-pine">University</dt>
+                  <dd className="mt-1 text-sm text-ink">UConn</dd>
+                </div>
+                <div>
+                  <dt className="label-mono text-pine">Off the clock</dt>
+                  <dd className="mt-1 text-sm text-ink">Hiking · Swimming</dd>
+                </div>
+                <div className="col-span-2 sm:col-span-1">
+                  <dt className="label-mono text-pine">Loyal to</dt>
+                  <dd className="mt-1 text-sm text-ink">
+                    Boston sports + UConn
+                  </dd>
+                </div>
+              </dl>
               </div>
-            ))}
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <section
-        id="about"
-        className="relative z-10  px-6 py-20"
-      >
-        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-              About
-            </p>
-            <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-              Software engineer with an R&D mindset.
-            </h2>
-          </div>
+      {/* CONTACT */}
+      <section id="contact" className="relative z-10 px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <div className="overflow-hidden rounded-3xl border border-emerald-950/20 bg-pine/95 p-8 shadow-[0_30px_80px_-40px_rgba(20,40,26,0.6)] backdrop-blur-md md:p-14">
+              <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+                <div>
+                  <div className="flex items-center gap-3 label-mono text-emerald-300">
+                    <span>05</span>
+                    <span className="h-px w-10 bg-emerald-300/40" />
+                    <span>Contact</span>
+                  </div>
+                  <h2 className="mt-4 font-display text-4xl tracking-tight text-paper md:text-5xl">
+                    Let&apos;s build something.
+                  </h2>
+                  <p className="mt-5 max-w-xl text-emerald-50/80">
+                    Open to software engineering, applied AI, automation, and
+                    R&amp;D-focused technical software roles.
+                  </p>
+                </div>
 
-          <div className="space-y-6 text-lg leading-8 text-stone-700">
-            <p>
-              I work at the intersection of software engineering, AI, simulation,
-              and technical research. My experience includes computer vision
-              pipelines, multi-spectral sensor workflows, physics-based modeling,
-              and AI-powered internal tools for automation and decision support.
-            </p>
-            <p>
-              I am interested in software engineering roles where I can build
-              useful systems, work with complex data, and contribute to products
-              that require both strong engineering judgment and practical
-              implementation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        className="relative z-10  px-6 py-20"
-      >
-        <div className="mx-auto max-w-5xl rounded-lg border border-emerald-200 bg-emerald-950 p-8 text-white shadow-lg shadow-emerald-950/20 md:p-12">
-          <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-200">
-                Contact
-              </p>
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Let&apos;s connect.
-              </h2>
-              <p className="mt-4 max-w-2xl text-emerald-50/80">
-                I am open to software engineering, applied AI, automation, and
-                R&D-focused technical software roles.
-              </p>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="rounded-full bg-paper px-6 py-3.5 text-center text-sm font-semibold text-ink transition hover:bg-emerald-100"
+                  >
+                    Email me
+                  </a>
+                  <a
+                    href={site.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-emerald-200/40 px-6 py-3.5 text-center text-sm font-semibold text-paper transition hover:bg-white/10"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={site.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-emerald-200/40 px-6 py-3.5 text-center text-sm font-semibold text-paper transition hover:bg-white/10"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col gap-3">
-              <a
-                href={`mailto:${site.email}`}
-                className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-emerald-950 transition hover:bg-emerald-50"
-              >
-                Email Me
-              </a>
-              <a
-                href={site.linkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-emerald-200 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={site.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-emerald-200 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <footer className="relative z-10  px-6 py-8">
-        <div className="mx-auto flex max-w-5xl flex-col justify-between gap-4 text-sm text-stone-500 md:flex-row">
-          <p>© 2026 {site.name}. All rights reserved.</p>
-          <p>Built with Next.js, TypeScript, Tailwind CSS, and Vercel.</p>
+      <footer className="relative z-10 px-6 py-10">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 label-mono text-ink-soft/70 md:flex-row">
+          <p>&copy; 2026 {site.name}</p>
+          <p>Next.js · TypeScript · Tailwind · Vercel</p>
         </div>
       </footer>
     </main>

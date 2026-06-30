@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, type WheelEvent } from "react";
+import { useEffect, useRef } from "react";
 
 type Project = {
   title: string;
@@ -24,65 +24,69 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
   const scrollByCard = (direction: -1 | 1) => {
     const rail = railRef.current;
-
-    if (!rail) {
-      return;
-    }
-
+    if (!rail) return;
     rail.scrollBy({
       left: direction * Math.min(560, rail.clientWidth * 0.88),
       behavior: "smooth",
     });
   };
 
-  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
+  // Translate vertical wheel into smooth 1:1 horizontal scrolling, using a
+  // native non-passive listener so preventDefault works and there's no jump.
+  useEffect(() => {
     const rail = railRef.current;
+    if (!rail) return;
 
-    if (!rail) {
-      return;
-    }
+    const onWheel = (event: WheelEvent) => {
+      // Leave genuine horizontal gestures (trackpads) to the browser.
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
-    const delta =
-      Math.abs(event.deltaY) > Math.abs(event.deltaX)
-        ? event.deltaY
-        : event.deltaX;
-    const canScrollLeft = rail.scrollLeft > 0;
-    const canScrollRight =
-      Math.ceil(rail.scrollLeft + rail.clientWidth) < rail.scrollWidth;
+      const atStart = rail.scrollLeft <= 0;
+      const atEnd =
+        Math.ceil(rail.scrollLeft + rail.clientWidth) >= rail.scrollWidth - 1;
 
-    if ((delta < 0 && canScrollLeft) || (delta > 0 && canScrollRight)) {
+      // At an edge and scrolling further out: let the page scroll normally.
+      if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
+
       event.preventDefault();
-      rail.scrollBy({ left: delta, behavior: "auto" });
-    }
-  };
+      rail.scrollLeft += event.deltaY;
+    };
+
+    rail.addEventListener("wheel", onWheel, { passive: false });
+    return () => rail.removeEventListener("wheel", onWheel);
+  }, []);
 
   return (
     <div className="relative">
-      <div className="mb-5 flex justify-end gap-2">
-        <button
-          type="button"
-          aria-label="Scroll projects left"
-          onClick={() => scrollByCard(-1)}
-          className="grid size-10 place-items-center rounded-full border border-emerald-200 bg-white/85 text-emerald-900 shadow-sm shadow-emerald-950/5 transition hover:border-emerald-400 hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-        >
-          <ArrowLeft aria-hidden="true" size={18} strokeWidth={2} />
-        </button>
-        <button
-          type="button"
-          aria-label="Scroll projects right"
-          onClick={() => scrollByCard(1)}
-          className="grid size-10 place-items-center rounded-full border border-emerald-200 bg-white/85 text-emerald-900 shadow-sm shadow-emerald-950/5 transition hover:border-emerald-400 hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-        >
-          <ArrowRight aria-hidden="true" size={18} strokeWidth={2} />
-        </button>
+      <div className="mb-5 flex items-center justify-between">
+        <p className="label-mono text-ink-soft">
+          Projects · scroll or drag
+        </p>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            aria-label="Scroll projects left"
+            onClick={() => scrollByCard(-1)}
+            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine"
+          >
+            <ArrowLeft aria-hidden="true" size={18} strokeWidth={2} />
+          </button>
+          <button
+            type="button"
+            aria-label="Scroll projects right"
+            onClick={() => scrollByCard(1)}
+            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine"
+          >
+            <ArrowRight aria-hidden="true" size={18} strokeWidth={2} />
+          </button>
+        </div>
       </div>
 
       <div
         ref={railRef}
-        onWheel={handleWheel}
-        className="project-scrollbar -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 scroll-smooth md:mx-0 md:px-0"
+        className="project-scrollbar edge-fade-x -mx-6 flex snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 md:mx-0 md:px-0"
       >
-        {projects.map((project) => {
+        {projects.map((project, i) => {
           const status = project.status.toLowerCase();
           const isComplete =
             status.includes("enhanced") ||
@@ -93,28 +97,33 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           return (
             <article
               key={project.title}
-              className="flex min-h-[36rem] w-[min(86vw,34rem)] shrink-0 snap-start flex-col rounded-lg border border-emerald-200 bg-white/90 p-7 shadow-sm shadow-emerald-950/5 transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-md md:w-[34rem]"
+              className="group flex min-h-[36rem] w-[min(86vw,34rem)] shrink-0 snap-start flex-col rounded-2xl border border-ink/10 bg-paper/85 p-7 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] md:w-[34rem]"
             >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm font-medium text-emerald-700">
-                  {project.type}
-                </p>
+              <div className="flex items-center justify-between">
+                <span className="label-mono text-ink-soft">
+                  {String(i + 1).padStart(2, "0")} / {project.type}
+                </span>
                 <span
-                  className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
                     isComplete
                       ? "bg-emerald-100 text-emerald-800"
                       : "bg-amber-100 text-amber-800"
                   }`}
                 >
+                  <span
+                    className={`size-1.5 rounded-full ${
+                      isComplete ? "bg-emerald-600" : "bg-amber-500"
+                    }`}
+                  />
                   {project.status}
                 </span>
               </div>
 
-              <h3 className="mt-5 text-2xl font-bold text-emerald-950">
+              <h3 className="mt-5 font-display text-2xl tracking-tight text-ink">
                 {project.title}
               </h3>
 
-              <p className="mt-4 text-sm leading-6 text-stone-600">
+              <p className="mt-4 text-sm leading-6 text-ink-soft">
                 {project.description}
               </p>
 
@@ -122,20 +131,24 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800"
+                    className="label-mono rounded-md border border-ink/10 bg-paper-2/60 px-2.5 py-1 text-[0.68rem] text-ink-soft"
                   >
                     {item}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-7 border-t border-emerald-100 pt-5">
-                <p className="text-sm font-semibold text-stone-800">
-                  What it demonstrates
-                </p>
-                <ul className="mt-3 grid gap-2 text-sm text-stone-600 sm:grid-cols-2">
+              <div className="mt-7 border-t border-line/70 pt-5">
+                <p className="label-mono text-pine">What it demonstrates</p>
+                <ul className="mt-3 grid gap-2.5 text-sm text-ink-soft sm:grid-cols-2">
                   {project.focus.map((item) => (
-                    <li key={item}>• {item}</li>
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span
+                        aria-hidden="true"
+                        className="mt-[6px] size-1.5 shrink-0 rounded-full bg-emerald-600 ring-2 ring-emerald-600/15"
+                      />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -146,7 +159,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-emerald-800 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-900"
+                    className="rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-paper transition hover:bg-pine"
                   >
                     {project.demoLabel || "Live Demo"}
                   </a>
@@ -157,7 +170,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-emerald-300 px-5 py-3 text-center text-sm font-semibold text-emerald-900 transition hover:border-emerald-600 hover:bg-emerald-50"
+                    className="rounded-full border border-ink/20 px-5 py-3 text-center text-sm font-semibold text-ink transition hover:border-pine hover:text-pine"
                   >
                     View Repository
                   </a>
