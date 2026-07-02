@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type Project = {
   title: string;
   icon?: string;
+  iconScale?: number;
   type: string;
   status: string;
   description: string;
@@ -160,15 +161,18 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
               <div className="mt-5 flex items-center gap-4">
                 {project.icon ? (
-                  <Image
-                    src={project.icon}
-                    alt=""
-                    aria-hidden="true"
-                    width={48}
-                    height={48}
-                    unoptimized
-                    className="size-12 shrink-0 rounded-xl shadow-[0_3px_10px_-2px_rgba(20,40,26,0.35)] ring-1 ring-ink/5 transition-transform duration-300 group-hover:-translate-y-0.5"
-                  />
+                  <span className="relative block size-12 shrink-0 overflow-hidden rounded-xl shadow-[0_3px_10px_-2px_rgba(20,40,26,0.35)] ring-1 ring-ink/5 transition-transform duration-300 group-hover:-translate-y-0.5">
+                    <Image
+                      src={project.icon}
+                      alt=""
+                      aria-hidden="true"
+                      width={96}
+                      height={96}
+                      unoptimized
+                      style={{ transform: `scale(${project.iconScale ?? 1})` }}
+                      className="size-full object-cover"
+                    />
+                  </span>
                 ) : null}
                 <h3 className="font-display text-2xl tracking-tight text-ink">
                   {project.title}
