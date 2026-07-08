@@ -32,9 +32,37 @@ export const workHighlights = [
 
 export const demoProjects = [
   {
+    title: "SentinelGrid Edge Telemetry",
+    icon: "/sentinel_grid_icon.png",
+    type: "Public Demo Project 01",
+    status: "Live Public Demo",
+    description:
+      "A local-first edge telemetry platform for climate-risk monitoring. It simulates 4,174 sensor nodes across 19 US regions, streaming readings through an MQTT pipeline into a geospatial store, with z-score + Isolation Forest anomaly scoring, sensor-drift quarantine, and incident tracking behind a national ops console. The dashboard overlays genuinely live public data (NEXRAD radar, ~3,700 real NWS/USGS stations, active storm warnings), and its deterministic engine can replay any moment of the last 24 hours, including storms that have already dissipated, without storing history. Runs fully in-browser, or against a live local backend.",
+    stack: [
+      "C++",
+      "MQTT / Mosquitto",
+      "FastAPI",
+      "PostgreSQL / PostGIS",
+      "Next.js",
+      "Leaflet",
+      "Docker",
+    ],
+    focus: [
+      "MQTT edge-sensor ingestion pipeline",
+      "PostGIS geospatial telemetry storage",
+      "z-score + IsolationForest anomaly scoring",
+      "Live public-data integration (NWS · USGS · NEXRAD)",
+      "Deterministic 4k-node simulation with zero-storage replay",
+      "Ops console: incident triage, playback, forecasts, ⌘K",
+    ],
+    github: "https://github.com/jburke860/sentinelgrid",
+    demo: "https://sentinelgrid-two.vercel.app",
+    demoLabel: "Live Demo",
+  },
+  {
     title: "ProjectPulse Demo",
     icon: "/proj_projpulse.svg",
-    type: "Public Demo Project 01",
+    type: "Public Demo Project 02",
     status: "Live Public Demo",
     description:
       "A live full-stack project-management demo with a React/Vite frontend, ASP.NET Core 8 API, seeded demo workspaces, project/task workflows, activity history, EF Core persistence, tests, Docker Compose, and GitHub Actions CI. This public demo uses temporary seeded workspaces and is being iteratively improved.",
@@ -56,35 +84,6 @@ export const demoProjects = [
     ],
     github: "https://github.com/jburke860/projectpulse-api",
     demo: "https://projectpulse-demo.vercel.app",
-    demoLabel: "Live Demo",
-  },
-  {
-    title: "SentinelGrid Edge Telemetry",
-    icon: "/sentinel_grid_icon.png",
-    type: "Public Demo Project 02",
-    status: "Live Public Demo",
-    description:
-      "A local-first edge telemetry system for climate-risk monitoring. It simulates 50 virtual sensor nodes across 9 US regions, streaming readings through an MQTT pipeline into a geospatial store, then runs anomaly detection, data-quality checks, and incident tracking behind an operator dashboard with a live map. The hosted demo runs fully in-browser with a deterministic simulator and can also connect to a live local backend.",
-    stack: [
-      "C++",
-      "MQTT / Mosquitto",
-      "FastAPI",
-      "PostgreSQL / PostGIS",
-      "MinIO",
-      "Next.js",
-      "Leaflet",
-      "Docker",
-    ],
-    focus: [
-      "MQTT edge-sensor ingestion pipeline",
-      "PostGIS geospatial telemetry storage",
-      "z-score + IsolationForest anomaly scoring",
-      "Operator dashboard with live map",
-      "Data-quality checks + hourly rollups",
-      "In-browser deterministic simulator mode",
-    ],
-    github: "https://github.com/jburke860/sentinelgrid",
-    demo: "https://sentinelgrid-two.vercel.app",
     demoLabel: "Live Demo",
   },
   {

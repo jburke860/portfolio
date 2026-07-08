@@ -100,7 +100,7 @@ export function Hero({ resume }: HeroProps) {
       {/* Scroll cue — a glowing dot travels down a track, with a bouncing chevron */}
       <motion.div
         style={reduce ? undefined : { opacity }}
-        className="absolute bottom-8 left-6 flex items-center gap-3 label-mono text-ink-soft"
+        className="absolute bottom-8 left-6 hidden items-center gap-3 label-mono text-ink-soft md:flex"
       >
         <span className="relative block h-12 w-px overflow-hidden rounded-full bg-ink-soft/20">
           <motion.span
