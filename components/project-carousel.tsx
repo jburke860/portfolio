@@ -7,7 +7,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type Project = {
   title: string;
   icon?: string;
-  iconScale?: number;
   type: string;
   status: string;
   description: string;
@@ -169,7 +168,6 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                       width={96}
                       height={96}
                       unoptimized
-                      style={{ transform: `scale(${project.iconScale ?? 1})` }}
                       className="size-full object-cover"
                     />
                   </span>

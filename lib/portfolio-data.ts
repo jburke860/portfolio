@@ -34,7 +34,6 @@ export const demoProjects = [
   {
     title: "ProjectPulse Demo",
     icon: "/proj_projpulse.svg",
-    iconScale: 1,
     type: "Public Demo Project 01",
     status: "Live Public Demo",
     description:
@@ -61,8 +60,7 @@ export const demoProjects = [
   },
   {
     title: "SentinelGrid Edge Telemetry",
-    icon: "/sentinel_grid.ico",
-    iconScale: 1.7,
+    icon: "/sentinel_grid_icon.png",
     type: "Public Demo Project 02",
     status: "Live Public Demo",
     description:
@@ -91,8 +89,7 @@ export const demoProjects = [
   },
   {
     title: "Open Computer Vision Detection Dashboard",
-    icon: "/opencv.ico",
-    iconScale: 1.18,
+    icon: "/opencv_icon.png",
     type: "Public Demo Project 03",
     status: "Live Public Demo",
     description:
@@ -120,8 +117,7 @@ export const demoProjects = [
   },
   {
     title: "Technical Paper AI Search Assistant",
-    icon: "/tech_paper_ass.ico",
-    iconScale: 1.32,
+    icon: "/tech_paper_ass_icon.png",
     type: "Public Demo Project 04",
     status: "Enhanced Local MVP",
     description:
