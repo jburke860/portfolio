@@ -105,7 +105,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
             type="button"
             aria-label="Scroll projects left"
             onClick={() => scrollByCard(-1)}
-            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine"
+            disabled={edges.atStart}
+            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine disabled:pointer-events-none disabled:opacity-40"
           >
             <ArrowLeft aria-hidden="true" size={18} strokeWidth={2} />
           </button>
@@ -113,7 +114,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
             type="button"
             aria-label="Scroll projects right"
             onClick={() => scrollByCard(1)}
-            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine"
+            disabled={edges.atEnd}
+            className="grid size-10 place-items-center rounded-full border border-ink/15 bg-paper/80 text-ink transition hover:border-pine hover:bg-pine hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine disabled:pointer-events-none disabled:opacity-40"
           >
             <ArrowRight aria-hidden="true" size={18} strokeWidth={2} />
           </button>
