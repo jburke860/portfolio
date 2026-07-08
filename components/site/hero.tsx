@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 
@@ -11,13 +11,27 @@ type HeroProps = {
 export function Hero({ resume }: HeroProps) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+
+  // The vertical parallax is only safe on wider screens. On mobile the hero is
+  // tall and vertically centered, so drifting the content downward makes it
+  // overlap the scroll cue and the section below — there we fade only.
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  // Content drifts up and fades as you scroll past the hero.
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  // Content drifts down slightly and fades as you scroll past the hero.
+  const yValue = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const y = isDesktop ? yValue : 0;
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
