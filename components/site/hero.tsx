@@ -87,8 +87,8 @@ export function Hero({ resume }: HeroProps) {
           </a>
         </div>
 
-        {/* Discipline strip — technical, monospace */}
-        <div className="mt-16 flex flex-wrap gap-x-8 gap-y-3 border-t border-line/70 pt-6 label-mono text-ink-soft">
+        {/* Discipline strip — technical, monospace (desktop only) */}
+        <div className="mt-16 hidden flex-wrap gap-x-8 gap-y-3 border-t border-line/70 pt-6 label-mono text-ink-soft md:flex">
           <span>Applied AI</span>
           <span>Computer Vision</span>
           <span>Sensor Fusion</span>
