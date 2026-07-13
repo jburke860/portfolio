@@ -76,13 +76,13 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-12 mb-8 rounded-2xl border border-pine/25 bg-emerald-50/70 p-6 backdrop-blur-sm">
+            <div className="mt-12 mb-8 rounded-2xl border border-ink/10 bg-paper-2/70 p-6 backdrop-blur-sm">
               <p className="label-mono text-pine">Project demo status</p>
               <p className="mt-3 max-w-5xl text-sm leading-6 text-ink-soft">
-                ProjectPulse API and the Open Computer Vision Detection Dashboard
-                are available as live public demos. The Technical Paper AI Search
-                Assistant is currently available as a local demo through its
-                GitHub setup instructions. Each repository includes setup or
+                SentinelGrid, ProjectPulse, and the Open Computer Vision
+                Detection Dashboard are available as live public demos. The
+                Technical Paper AI Search Assistant runs as a local demo through
+                its GitHub setup instructions. Each repository includes setup or
                 review instructions for exploring the project.
               </p>
             </div>
