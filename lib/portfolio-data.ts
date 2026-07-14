@@ -92,7 +92,7 @@ export const demoProjects = [
     type: "Public Demo Project 03",
     status: "Live Public Demo",
     description:
-      "A hosted computer vision dashboard that lets users upload an image or select a sample scene, run live YOLOv8 object detection, and download annotated image, JSON, and CSV results. The project uses a Next.js/TypeScript frontend, Firebase Authentication, Storage, and Firestore for upload/job tracking, and a Cloud Run FastAPI service for YOLOv8/OpenCV inference.",
+      "A hosted computer vision dashboard where users upload an image, capture a webcam frame, or batch-process multiple images through live YOLOv8 object detection. Features an interactive dark/light workspace with bounding-box viewer, original/annotated comparison, detection analytics, and annotated image, JSON, and CSV exports. Built with a Next.js/TypeScript frontend, Firebase Authentication, Storage, and Firestore for upload/job tracking, and a token-verified Cloud Run FastAPI service running selectable YOLOv8 models.",
     stack: [
       "Next.js",
       "TypeScript",
@@ -104,12 +104,12 @@ export const demoProjects = [
       "Computer Vision",
     ],
     focus: [
-      "Live image-upload inference workflow",
+      "Live upload, webcam, and batch-queue inference workflows",
+      "Selectable YOLOv8 models with confidence/IoU tuning",
+      "Secure token-verified Cloud Run FastAPI backend",
+      "Interactive detection analytics + bounding-box viewer",
       "Firestore job tracking",
-      "Cloud Run FastAPI backend deployment",
-      "Firebase Authentication",
-      "YOLOv8 object detection",
-      "Annotated image, JSON, and CSV results generation",
+      "Annotated image, JSON, and CSV export generation",
     ],
     github: "https://github.com/jburke860/open-cv-detection-dashboard",
     demo: "https://open-cv-detection-dashboard--open-cv-detection-dashboard.us-central1.hosted.app",
