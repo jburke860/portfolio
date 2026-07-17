@@ -33,29 +33,65 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
     });
   };
 
-  // Translate vertical wheel into smooth 1:1 horizontal scrolling, using a
-  // native non-passive listener so preventDefault works and there's no jump.
+  // Click-and-drag horizontal scrolling for mouse users. We intentionally do
+  // NOT hijack the vertical wheel: capturing it made the page scroll halt when
+  // you reached the carousel. Touch and trackpad drag natively; Shift+wheel
+  // scrolls it horizontally via the browser default.
   useEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
 
-    const onWheel = (event: WheelEvent) => {
-      // Leave genuine horizontal gestures (trackpads) to the browser.
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    let isDown = false;
+    let moved = false;
+    let startX = 0;
+    let startScroll = 0;
 
-      const atStart = rail.scrollLeft <= 0;
-      const atEnd =
-        Math.ceil(rail.scrollLeft + rail.clientWidth) >= rail.scrollWidth - 1;
-
-      // At an edge and scrolling further out: let the page scroll normally.
-      if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
-
-      event.preventDefault();
-      rail.scrollLeft += event.deltaY;
+    const onPointerDown = (event: PointerEvent) => {
+      // Mouse primary button only — leave touch/pen to native scrolling.
+      if (event.pointerType !== "mouse" || event.button !== 0) return;
+      isDown = true;
+      moved = false;
+      startX = event.clientX;
+      startScroll = rail.scrollLeft;
     };
 
-    rail.addEventListener("wheel", onWheel, { passive: false });
-    return () => rail.removeEventListener("wheel", onWheel);
+    const onPointerMove = (event: PointerEvent) => {
+      if (!isDown) return;
+      const dx = event.clientX - startX;
+      // Small threshold so a plain click isn't read as a drag.
+      if (!moved && Math.abs(dx) < 6) return;
+      moved = true;
+      rail.setPointerCapture(event.pointerId);
+      rail.style.cursor = "grabbing";
+      rail.style.userSelect = "none";
+      rail.scrollLeft = startScroll - dx;
+    };
+
+    const endDrag = () => {
+      if (!isDown) return;
+      isDown = false;
+      rail.style.cursor = "";
+      rail.style.userSelect = "";
+      // Swallow the click that follows a real drag so card links don't fire.
+      if (moved) {
+        const suppress = (e: MouseEvent) => {
+          e.stopPropagation();
+          e.preventDefault();
+        };
+        rail.addEventListener("click", suppress, { capture: true, once: true });
+      }
+    };
+
+    rail.addEventListener("pointerdown", onPointerDown);
+    rail.addEventListener("pointermove", onPointerMove);
+    rail.addEventListener("pointerup", endDrag);
+    rail.addEventListener("pointercancel", endDrag);
+    return () => {
+      rail.removeEventListener("pointerdown", onPointerDown);
+      rail.removeEventListener("pointermove", onPointerMove);
+      rail.removeEventListener("pointerup", endDrag);
+      rail.removeEventListener("pointercancel", endDrag);
+    };
   }, []);
 
   // Track whether we're at the far left/right so the edge fade only appears on
