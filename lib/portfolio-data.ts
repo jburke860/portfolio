@@ -155,7 +155,7 @@ export const skills = [
   },
   {
     category: "AI & Data Systems",
-    items: ["Python", "LLM Systems", "RAG", "Chroma", "Computer Vision", "YOLOv8"],
+    items: ["Python", "LLM Systems", "RAG", "Transformers.js", "Computer Vision", "YOLO"],
   },
   {
     category: "DevOps & Tools",
