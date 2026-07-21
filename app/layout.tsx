@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     description:
       "Computer vision, sensor fusion, simulation, automation, and R&D software.",
     type: "website",
+    url: "https://jeremytburke.com",
+    siteName: "Jeremy Burke",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeremy Burke | Applied AI & Software Engineer",
+    description:
+      "Computer vision, sensor fusion, simulation, automation, and R&D software.",
   },
 };
 
