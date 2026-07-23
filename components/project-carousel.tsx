@@ -24,6 +24,18 @@ type ProjectCarouselProps = {
 export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const railRef = useRef<HTMLDivElement>(null);
 
+  // Below md we render a plain vertical stack (natural height, page scroll).
+  // The horizontal rail — with its drag handler, edge fades, and arrows — is a
+  // desktop-only affordance, so we gate all of that behind this flag.
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   const scrollByCard = (direction: -1 | 1) => {
     const rail = railRef.current;
     if (!rail) return;
@@ -39,7 +51,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   // scrolls it horizontally via the browser default.
   useEffect(() => {
     const rail = railRef.current;
-    if (!rail) return;
+    if (!rail || !isDesktop) return;
 
     let isDown = false;
     let moved = false;
@@ -92,7 +104,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
       rail.removeEventListener("pointerup", endDrag);
       rail.removeEventListener("pointercancel", endDrag);
     };
-  }, []);
+  }, [isDesktop]);
 
   // Track whether we're at the far left/right so the edge fade only appears on
   // a side when there's more content to scroll toward it.
@@ -132,7 +144,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
   return (
     <div className="relative">
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 hidden items-center justify-between md:flex">
         <p className="label-mono text-ink-soft">
           Projects · scroll or drag
         </p>
@@ -160,8 +172,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
       <div
         ref={railRef}
-        style={{ WebkitMaskImage: maskImage, maskImage }}
-        className="project-scrollbar -mx-6 flex gap-5 overflow-x-auto overscroll-x-contain px-6 pb-6 pt-3 md:mx-0 md:px-0"
+        style={isDesktop ? { WebkitMaskImage: maskImage, maskImage } : undefined}
+        className="project-scrollbar flex flex-col gap-5 md:flex-row md:overflow-x-auto md:overscroll-x-contain md:pb-6 md:pt-3"
       >
         {projects.map((project, i) => {
           const status = project.status.toLowerCase();
@@ -174,7 +186,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           return (
             <article
               key={project.title}
-              className="group flex min-h-[36rem] w-[min(86vw,34rem)] shrink-0 flex-col rounded-2xl border border-ink/10 bg-paper/85 p-7 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] md:w-[34rem]"
+              className="group flex w-full flex-col rounded-2xl border border-ink/10 bg-paper/85 p-5 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] md:min-h-[36rem] md:w-[34rem] md:shrink-0 md:p-7"
             >
               <div className="flex items-center justify-between">
                 <span className="label-mono text-ink-soft">
