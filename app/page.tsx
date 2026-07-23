@@ -18,7 +18,7 @@ export default function Home() {
       <Hero resume={site.resume} />
 
       {/* WORK */}
-      <section id="work" className="relative z-10 px-6 py-16 md:py-32">
+      <section id="work" className="relative z-10 scroll-mt-16 px-6 py-16 md:scroll-mt-0 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -64,7 +64,7 @@ export default function Home() {
       </section>
 
       {/* DEMOS */}
-      <section id="demos" className="relative z-10 px-6 py-16 md:py-32">
+      <section id="demos" className="relative z-10 scroll-mt-16 px-6 py-16 md:scroll-mt-0 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="relative z-10 px-6 py-16 md:py-32">
+      <section id="skills" className="relative z-10 scroll-mt-16 px-6 py-16 md:scroll-mt-0 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -127,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="relative z-10 px-6 py-16 md:py-32">
+      <section id="about" className="relative z-10 scroll-mt-16 px-6 py-16 md:scroll-mt-0 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -208,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="relative z-10 px-6 py-16 md:py-32">
+      <section id="contact" className="relative z-10 scroll-mt-16 px-6 py-16 md:scroll-mt-0 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-emerald-950/20 bg-pine/95 p-8 shadow-[0_30px_80px_-40px_rgba(20,40,26,0.6)] backdrop-blur-md md:p-14">
