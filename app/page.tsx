@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ProjectCarousel } from "@/components/project-carousel";
+import { ProjectGrid } from "@/components/project-grid";
 import { BackgroundField } from "@/components/site/background-field";
 import { Hero } from "@/components/site/hero";
 import { Reveal } from "@/components/site/reveal";
@@ -88,7 +88,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <ProjectCarousel projects={demoProjects} />
+            <ProjectGrid projects={demoProjects} />
           </Reveal>
         </div>
       </section>

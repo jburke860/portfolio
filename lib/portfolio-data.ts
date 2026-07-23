@@ -36,6 +36,8 @@ export const demoProjects = [
     icon: "/sentinel_grid_icon.png",
     type: "Public Demo Project 01",
     status: "Live Public Demo",
+    tagline:
+      "A 4,174-node climate telemetry simulation with live weather data and anomaly detection.",
     description:
       "A local-first edge telemetry platform for climate-risk monitoring. It simulates 4,174 sensor nodes across 19 US regions, streaming readings through an MQTT pipeline into a geospatial store, with z-score + Isolation Forest anomaly scoring, sensor-drift quarantine, and incident tracking behind a national ops console. The dashboard overlays genuinely live public data (NEXRAD radar, ~3,700 real NWS/USGS stations, active storm warnings), and its deterministic engine can replay any moment of the last 24 hours, including storms that have already dissipated, without storing history. Runs fully in-browser, or against a live local backend.",
     stack: [
@@ -64,6 +66,8 @@ export const demoProjects = [
     icon: "/proj_projpulse.svg",
     type: "Public Demo Project 02",
     status: "Live Public Demo",
+    tagline:
+      "A production-style project management platform with a drag-and-drop Kanban dashboard.",
     description:
       "A production-style project-management platform with an ASP.NET Core 8 Clean Architecture API and a React 19 dashboard. Features isolated demo workspaces, drag-and-drop Kanban board, file attachments, labels, role-based permissions, audit history, rate limiting, and 100+ automated tests across the stack.",
     stack: [
@@ -91,6 +95,8 @@ export const demoProjects = [
     icon: "/opencv_icon.png",
     type: "Public Demo Project 03",
     status: "Live Public Demo",
+    tagline:
+      "Live object detection with 7 selectable models, including open-vocabulary YOLO-World.",
     description:
       "A hosted computer vision dashboard where users upload an image, capture a webcam frame, or batch-process multiple images through live object detection. Features seven selectable models spanning three YOLO generations (v8–v12), the RT-DETR transformer detector, and open-vocabulary YOLO-World, which detects free-form text-prompted classes. Includes an interactive dark/light workspace with bounding-box viewer, original/annotated comparison, detection analytics, and annotated image, JSON, and CSV exports. Built with a Next.js/TypeScript frontend, Firebase Authentication, Storage, and Firestore for upload/job tracking, and a token-verified Cloud Run FastAPI inference service.",
     stack: [
@@ -120,6 +126,8 @@ export const demoProjects = [
     icon: "/tech_paper_ass_icon.png",
     type: "Public Demo Project 04",
     status: "Live Public Demo",
+    tagline:
+      "A source-grounded research assistant with exact-passage citations on real PDF pages.",
     description:
       "A source-grounded research assistant deployed on Cloudflare's free tier. Hybrid semantic + BM25 retrieval with reciprocal-rank fusion over a 10-paper aerospace corpus streams cited answers, highlights the exact passage on the real PDF page, and lets visitors search their own PDFs entirely in-browser, protected by a fail-closed daily quota so the demo can never generate a bill.",
     stack: [

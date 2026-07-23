@@ -203,35 +203,4 @@
     );
   }
 
-  .project-scrollbar {
-    scrollbar-color: rgb(5 150 105 / 0.42) transparent;
-    scrollbar-width: thin;
-  }
-
-  .project-scrollbar::-webkit-scrollbar {
-    height: 0.625rem;
-  }
-
-  .project-scrollbar::-webkit-scrollbar-track {
-    background: rgb(236 253 245 / 0.72);
-    border-radius: 999px;
-  }
-
-  .project-scrollbar::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      90deg,
-      rgb(5 150 105 / 0.45),
-      rgb(20 83 45 / 0.55)
-    );
-    border: 3px solid rgb(236 253 245 / 0.72);
-    border-radius: 999px;
-  }
-
-  .project-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(
-      90deg,
-      rgb(5 150 105 / 0.62),
-      rgb(20 83 45 / 0.72)
-    );
-  }
 }
