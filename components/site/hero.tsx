@@ -38,7 +38,7 @@ export function Hero({ resume }: HeroProps) {
     <section
       ref={ref}
       id="top"
-      className="relative z-10 mx-auto flex min-h-[92vh] max-w-6xl flex-col justify-center px-6 pb-20 pt-28"
+      className="relative z-10 mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-6 pb-20 pt-24 md:min-h-[92vh] md:pt-28"
     >
       <motion.div style={reduce ? undefined : { y, opacity }}>
         {/* Technical eyebrow */}
@@ -57,7 +57,7 @@ export function Hero({ resume }: HeroProps) {
         </div>
 
         {/* Editorial display headline */}
-        <h1 className="mt-8 max-w-4xl font-display text-5xl leading-[1.02] tracking-tight text-ink sm:text-6xl md:text-7xl">
+        <h1 className="mt-8 max-w-4xl font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-6xl sm:leading-[1.02] md:text-7xl">
           I build software for{" "}
           <span className="italic text-pine">technical, real-world</span>{" "}
           systems.
@@ -72,7 +72,7 @@ export function Hero({ resume }: HeroProps) {
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
           <a
             href="#demos"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition hover:bg-pine"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition hover:bg-pine sm:w-auto"
           >
             View public demos
             <span className="transition-transform group-hover:translate-x-1">
@@ -81,7 +81,7 @@ export function Hero({ resume }: HeroProps) {
           </a>
           <a
             href={resume}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-7 py-3.5 text-sm font-semibold text-ink transition hover:border-pine hover:text-pine"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-ink/20 px-7 py-3.5 text-sm font-semibold text-ink transition hover:border-pine hover:text-pine sm:w-auto"
           >
             Download résumé
           </a>
