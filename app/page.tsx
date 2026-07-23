@@ -18,7 +18,7 @@ export default function Home() {
       <Hero resume={site.resume} />
 
       {/* WORK */}
-      <section id="work" className="relative z-10 px-6 py-24 md:py-32">
+      <section id="work" className="relative z-10 px-6 py-16 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -40,7 +40,7 @@ export default function Home() {
                   <h3 className="mt-3 font-display text-xl tracking-tight text-ink">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-6 text-ink-soft">
+                  <p className="mt-4 text-base leading-relaxed text-ink-soft md:text-sm md:leading-6">
                     {item.description}
                   </p>
                   <div className="mt-6 flex flex-wrap gap-2">
@@ -64,7 +64,7 @@ export default function Home() {
       </section>
 
       {/* DEMOS */}
-      <section id="demos" className="relative z-10 px-6 py-24 md:py-32">
+      <section id="demos" className="relative z-10 px-6 py-16 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="relative z-10 px-6 py-24 md:py-32">
+      <section id="skills" className="relative z-10 px-6 py-16 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -127,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="relative z-10 px-6 py-24 md:py-32">
+      <section id="about" className="relative z-10 px-6 py-16 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionHeading
@@ -145,7 +145,7 @@ export default function Home() {
                   width={3024}
                   height={4032}
                   sizes="(min-width: 768px) 42vw, 90vw"
-                  className="aspect-[3/4] w-full object-cover"
+                  className="aspect-square w-full object-cover md:aspect-[3/4]"
                 />
                 <figcaption className="label-mono flex items-center gap-2 border-t border-line/70 px-4 py-3 text-ink-soft">
                   <span className="size-1.5 rounded-full bg-emerald-600" />
@@ -208,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="relative z-10 px-6 py-24 md:py-32">
+      <section id="contact" className="relative z-10 px-6 py-16 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-emerald-950/20 bg-pine/95 p-8 shadow-[0_30px_80px_-40px_rgba(20,40,26,0.6)] backdrop-blur-md md:p-14">
