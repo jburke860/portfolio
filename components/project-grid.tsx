@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import { useRef, useState } from "react";
 
 type Project = {
@@ -30,6 +31,7 @@ type ProjectGridProps = {
 export function ProjectGrid({ projects }: ProjectGridProps) {
   const [openTitle, setOpenTitle] = useState<string | null>(null);
   const cardRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const reduce = useReducedMotion();
 
   const toggle = (title: string) => {
     const next = openTitle === title ? null : title;
@@ -45,8 +47,9 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
   };
 
   return (
-    <div className="grid gap-5 sm:grid-cols-2">
-      {projects.map((project, i) => {
+    <LayoutGroup>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {projects.map((project, i) => {
         const open = openTitle === project.title;
         const status = project.status.toLowerCase();
         const isComplete =
@@ -56,20 +59,26 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
           status.includes("live");
 
         return (
-          <article
+          <motion.article
             key={project.title}
+            layout={!reduce}
+            transition={{ layout: { duration: 0.55, ease: [0.32, 0.72, 0, 1] } }}
+            style={{ borderRadius: 16 }}
             ref={(el) => {
               if (el) cardRefs.current.set(project.title, el);
               else cardRefs.current.delete(project.title);
             }}
-            className={`group scroll-mt-20 rounded-2xl border bg-paper/85 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition duration-300 ${
+            className={`group scroll-mt-20 border bg-paper/85 shadow-[0_1px_0_rgba(22,32,26,0.04)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 ${
               open
                 ? "border-pine/40 shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)] sm:col-span-2"
-                : "border-ink/10 hover:-translate-y-1 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)]"
+                : "border-ink/10 hover:border-pine/40 hover:shadow-[0_24px_60px_-30px_rgba(12,21,15,0.55)]"
             }`}
           >
-            {/* Compact header — always visible, toggles the detail */}
-            <button
+            {/* Compact header — always visible, toggles the detail.
+                layout="position" keeps the text from stretching while the
+                card itself animates between widths. */}
+            <motion.button
+              layout={reduce ? false : "position"}
               type="button"
               onClick={() => toggle(project.title)}
               aria-expanded={open}
@@ -126,11 +135,11 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
                   <ChevronDown aria-hidden="true" size={16} strokeWidth={2} />
                 </span>
               </div>
-            </button>
+            </motion.button>
 
             {/* Expanded detail — animates open via the 0fr -> 1fr grid trick */}
             <div
-              className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+              className={`grid transition-[grid-template-rows] duration-[550ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${
                 open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
               }`}
             >
@@ -192,9 +201,10 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
                 </div>
               </div>
             </div>
-          </article>
+          </motion.article>
         );
       })}
-    </div>
+      </div>
+    </LayoutGroup>
   );
 }
