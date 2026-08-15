@@ -33,12 +33,17 @@ export function Hero({ resume }: HeroProps) {
   const yValue = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const y = isDesktop ? yValue : 0;
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scrollCueOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.45],
+    [1, 1, 0],
+  );
 
   return (
     <section
       ref={ref}
       id="top"
-      className="relative z-10 mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-6 pb-20 pt-24 md:min-h-[92vh] md:pt-28"
+      className="relative z-10 mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center overflow-hidden px-6 pb-20 pt-24 md:min-h-[92vh] md:pt-28"
     >
       <motion.div style={reduce ? undefined : { y, opacity }}>
         {/* Technical eyebrow */}
@@ -95,36 +100,36 @@ export function Hero({ resume }: HeroProps) {
           <span>Simulation</span>
           <span>R&amp;D Software</span>
         </div>
-      </motion.div>
 
-      {/* Scroll cue — a glowing dot travels down a track, with a bouncing chevron */}
-      <motion.div
-        style={reduce ? undefined : { opacity }}
-        className="absolute bottom-8 left-6 hidden items-center gap-3 label-mono text-ink-soft md:flex"
-      >
-        <span className="relative block h-12 w-px overflow-hidden rounded-full bg-ink-soft/20">
+        {/* Scroll cue stays in flow so it cannot cross the discipline strip. */}
+        <motion.div
+          style={reduce ? undefined : { opacity: scrollCueOpacity }}
+          className="mt-12 hidden items-center gap-3 label-mono text-ink-soft md:flex"
+        >
+          <span className="relative block h-12 w-px overflow-hidden rounded-full bg-ink-soft/20">
+            <motion.span
+              aria-hidden="true"
+              className="absolute left-1/2 top-0 h-5 w-px -translate-x-1/2 rounded-full bg-gradient-to-b from-transparent via-emerald-500 to-emerald-600"
+              style={{ filter: "drop-shadow(0 0 6px rgba(16,185,129,0.9))" }}
+              animate={reduce ? undefined : { y: ["-20px", "48px"] }}
+              transition={{
+                duration: 1.9,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </span>
+          <span>Scroll</span>
           <motion.span
             aria-hidden="true"
-            className="absolute left-1/2 top-0 h-5 w-px -translate-x-1/2 rounded-full bg-gradient-to-b from-transparent via-emerald-500 to-emerald-600"
-            style={{ filter: "drop-shadow(0 0 6px rgba(16,185,129,0.9))" }}
-            animate={reduce ? undefined : { y: ["-20px", "48px"] }}
-            transition={{
-              duration: 1.9,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </span>
-        <span>Scroll</span>
-        <motion.span
-          aria-hidden="true"
-          className="text-emerald-600"
-          style={{ filter: "drop-shadow(0 0 5px rgba(16,185,129,0.7))" }}
-          animate={reduce ? undefined : { y: [0, 4, 0], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={16} strokeWidth={2.5} />
-        </motion.span>
+            className="text-emerald-600"
+            style={{ filter: "drop-shadow(0 0 5px rgba(16,185,129,0.7))" }}
+            animate={reduce ? undefined : { y: [0, 4, 0], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown size={16} strokeWidth={2.5} />
+          </motion.span>
+        </motion.div>
       </motion.div>
     </section>
   );
